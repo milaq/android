@@ -12,6 +12,11 @@
       remote="github"
       revision="cm-11.0"/>
 
+    <project path="device/boxer8/ouya"
+      name="milaq/android_device_boxer8_ouya"
+      remote="github"
+      revision="cm-11.0"/>
+
     <project path="device/htc/leo"
       name="milaq/android_device_htc_leo"
       remote="github"
@@ -47,6 +52,11 @@
       remote="github"
       revision="encore-omap3-3.0.y"/>
 
+    <project path="kernel/boxer8/ouya"
+      name="milaq/android_kernel_boxer8_ouya"
+      remote="github"
+      revision="cm-11.0"/>
+
     <project path="kernel/htc/leo"
       name="milaq/android_kernel_htc_leo"
       remote="github"
@@ -79,6 +89,11 @@
 
     <project path="vendor/bn"
       name="TheMuppets/proprietary_vendor_bn"
+      remote="github"
+      revision="cm-11.0"/>
+
+    <project path="vendor/boxer8/ouya"
+      name="milaq/android_vendor_boxer8_ouya"
       remote="github"
       revision="cm-11.0"/>
 
