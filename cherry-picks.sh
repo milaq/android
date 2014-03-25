@@ -35,6 +35,10 @@ function check_clean {
 #
 
 # DisplayDevice: Backwards compatibility with old EGL
-pushd frameworks/native
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/57/54257/5 && git cherry-pick FETCH_HEAD
+PATCH=14-03-25_backwards-compatibility-with-old-egl
+FOLDER=frameworks/native
+###
+pushd ${FOLDER}
+wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
+git am ${PATCH}.patch
 check_clean
