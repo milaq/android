@@ -34,8 +34,8 @@ function check_clean {
 # insert cherry-picks below
 #
 
-# hammerhead hdpi build
-PATCH=13-12-07_hammerhead-hdpi-build
+# hammerhead xhdpi build
+PATCH=13-12-07_hammerhead-xhdpi-build
 FOLDER=device/lge/hammerhead
 ###
 pushd ${FOLDER}

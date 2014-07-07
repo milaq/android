@@ -1,7 +1,7 @@
 From c72b4c0e9a4fce6fede744035de596ac70004808 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
 Date: Sat, 7 Dec 2013 12:40:05 +0100
-Subject: [PATCH] hammerhead hdpi build
+Subject: [PATCH] hammerhead xhdpi build
 
 ---
  device.mk | 6 +++---
