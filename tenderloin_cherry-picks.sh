@@ -34,15 +34,6 @@ function check_clean {
 # insert cherry-picks below
 #
 
-# libhardware_legacy/wifi: add workaround for ath6kl driver
-PATCH=14-01-06_libhardware_legacy-wifi-add-workaround-for-ath6kl
-FOLDER=hardware/libhardware_legacy
-###
-pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
-
 # btservice/AdaperState: handle ENABLED_READY in OffState
 PATCH=13-11-25_btservice-AdaperState-handle-ENABLED_READY
 FOLDER=packages/apps/Bluetooth
