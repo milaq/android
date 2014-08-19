@@ -54,7 +54,7 @@ check_clean
 
 # add INCALL_MUSIC stream type to getStrategy()
 PATCH=14-08-19_add-INCALL_MUSIC-stream-type-to-getStrategy
-FOLDER=hardware/qcom/audio/caf
+FOLDER=hardware/qcom/audio-caf
 ###
 pushd ${FOLDER}
 wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
@@ -63,7 +63,7 @@ check_clean
 
 # fix legacy audio ringtone
 PATCH=14-08-19_fix-legacy-hal-ringtone
-FOLDER=hardware/qcom/audio/caf
+FOLDER=hardware/qcom/audio-caf
 ###
 pushd ${FOLDER}
 wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
