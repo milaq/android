@@ -22,6 +22,16 @@
       remote="github"
       revision="cm-11.0_3.0"/>
 
+    <project path="device/htc/vision"
+      name="milaq/android_device_htc_vision"
+      remote="github"
+      revision="cm-11.0"/>
+
+    <project path="device/htc/msm7x30-common"
+      name="milaq/android_device_htc_msm7x30-common"
+      remote="github"
+      revision="cm-11.0"/>
+
     <project path="device/hp/tenderloin"
       name="milaq/android_device_hp_tenderloin"
       remote="github"
@@ -62,6 +72,11 @@
       remote="github"
       revision="cm-11.0_3.0"/>
 
+    <project path="kernel/htc/vision"
+      name="milaq/android_kernel_htc_vision"
+      remote="github"
+      revision="cm-11.0"/>
+
     <project path="kernel/hp/tenderloin"
       name="milaq/android_kernel_hp_tenderloin"
       remote="github"
@@ -101,6 +116,11 @@
       name="milaq/android_vendor_htc_leo"
       remote="github"
       revision="cm-11.0_3.0"/>
+
+    <project path="vendor/htc/vision"
+      name="milaq/android_vendor_htc_vision"
+      remote="github"
+      revision="cm-11.0"/>
 
     <project path="vendor/hp/tenderloin"
       name="milaq/android_vendor_hp_tenderloin"
