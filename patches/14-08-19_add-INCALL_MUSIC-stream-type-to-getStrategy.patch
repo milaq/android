@@ -1,0 +1,27 @@
+From 510d8c5d2a9fe30485a135ae2325cfae1e667f27 Mon Sep 17 00:00:00 2001
+From: Mustaavalkosta <niko.hyrynsalmi@gmail.com>
+Date: Sun, 19 Jan 2014 01:36:30 -0800
+Subject: [PATCH] msm7x30: add INCALL_MUSIC stream type to getStrategy()
+
+Getting unknonw stream type flood in the log. This should fix it.
+
+Change-Id: I57c75f8f8edb117fbddf72bd2784298a438e6dd0
+---
+ legacy/msm7x30/AudioPolicyManager.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/legacy/msm7x30/AudioPolicyManager.cpp b/legacy/msm7x30/AudioPolicyManager.cpp
+index 84a195e..b477411 100644
+--- a/legacy/msm7x30/AudioPolicyManager.cpp
++++ b/legacy/msm7x30/AudioPolicyManager.cpp
+@@ -1489,6 +1489,7 @@ AudioPolicyManager::routing_strategy AudioPolicyManager::getStrategy(
+         // while key clicks are played produces a poor result
+     case AudioSystem::TTS:
+     case AudioSystem::MUSIC:
++    case AudioSystem::INCALL_MUSIC:
+ #ifdef QCOM_FM_ENABLED
+     case AudioSystem::FM:
+ #endif
+-- 
+2.0.3
+
