@@ -27,11 +27,6 @@
       remote="github"
       revision="cm-11.0"/>
 
-    <project path="device/htc/msm7x30-common"
-      name="milaq/android_device_htc_msm7x30-common"
-      remote="github"
-      revision="cm-11.0"/>
-
     <project path="device/hp/tenderloin"
       name="milaq/android_device_hp_tenderloin"
       remote="github"
