@@ -165,14 +165,14 @@
       revision="master"/>
 
     <project path="hardware/qcom/display-legacy"
-      name="Evervolv/android_hardware_qcom_display-legacy"
+      name="milaq/android_hardware_qcom_display-legacy"
       remote="github"
-      revision="kitkat"/>
+      revision="cm-11.0"/>
 
     <project path="hardware/qcom/media-legacy"
-      name="Evervolv/android_hardware_qcom_media-legacy"
+      name="milaq/android_hardware_qcom_media-legacy"
       remote="github"
-      revision="kitkat"/>
+      revision="cm-11.0"/>
 
     <project path="hardware/qcom/audio-legacy"
       name="Evervolv/android_hardware_qcom_audio-legacy"
