@@ -179,11 +179,6 @@
       remote="github"
       revision="kitkat"/>
 
-    <project path="packages/apps/HwaSettings"
-      name="royale1223/HwaSettings"
-      remote="github"
-      revision="jellybean"/>
-
     <project path="vendor/mlq"
       name="milaq/android_vendor_mlq"
       remote="github"
