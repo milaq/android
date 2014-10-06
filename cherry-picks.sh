@@ -42,3 +42,12 @@ pushd ${FOLDER}
 wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
+
+# dialer: allow sensor rotation in contacts
+PATCH=14-10-07_dialer-allow-sensor-rotation-in-contacts
+FOLDER=packages/apps/Dialer
+###
+pushd ${FOLDER}
+wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
