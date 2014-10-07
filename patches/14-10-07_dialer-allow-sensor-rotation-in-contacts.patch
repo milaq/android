@@ -1,14 +1,14 @@
-From 27886f1047e2342ba7b895f9de65b9580932b3fc Mon Sep 17 00:00:00 2001
+From 2a9326daa42d02fb6e2c749222bae58e73bc54da Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
 Date: Tue, 7 Oct 2014 00:34:47 +0200
 Subject: [PATCH] dialer: allow sensor rotation in contacts
 
 ---
- AndroidManifest.xml | 5 -----
- 1 file changed, 5 deletions(-)
+ AndroidManifest.xml | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 0be343b..7a8db46 100755
+index 0be343b..704874d 100755
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -83,7 +83,6 @@
@@ -27,11 +27,13 @@ index 0be343b..7a8db46 100755
              android:icon="@mipmap/ic_launcher_phone">
              <intent-filter>
                  <action android:name="android.intent.action.VIEW" />
-@@ -163,13 +161,11 @@
+@@ -162,14 +160,12 @@
+ 
          <activity android:name="com.android.dialer.list.AllContactsActivity"
              android:label="@string/show_all_contacts_title"
-             android:theme="@style/DialtactsThemeWithActionBarOverlay"
+-            android:theme="@style/DialtactsThemeWithActionBarOverlay"
 -            android:screenOrientation="nosensor">
++            android:theme="@style/DialtactsThemeWithActionBarOverlay">
          </activity>
  
          <activity android:name="com.android.dialer.CallDetailActivity"
