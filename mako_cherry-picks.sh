@@ -39,7 +39,7 @@ PATCH=13-11-12_mako-hdpi-build
 FOLDER=device/lge/mako
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
@@ -48,6 +48,6 @@ PATCH=14-07-03_minimize-softbutton-spacing
 FOLDER=frameworks/base
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean

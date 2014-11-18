@@ -1,9 +1,9 @@
-Cyanogenmod 11
+Cyanogenmod 12
 ================================
 manifests + cherry-picks (milaq)
 ================================
 
-Android 4.4 KitKat
+Android 5.0 Lollipop
 
 use 'CyanogenMod/android.git' to init the repos.
 pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync
