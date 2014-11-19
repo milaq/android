@@ -35,19 +35,19 @@ function check_clean {
 #
 
 # tuna hdpi build
-PATCH=14-07-07_tuna-hdpi-build.patch
+PATCH=14-11-19_tuna-hdpi-build.patch
 FOLDER=device/samsung/tuna
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.githubusercontent.com/milaq/android/cm-12.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
 # minimize softbutton spacing
-PATCH=14-07-03_minimize-softbutton-spacing
+PATCH=14-11-19_minimize-softbutton-spacing
 FOLDER=frameworks/base
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.githubusercontent.com/milaq/android/cm-12.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean

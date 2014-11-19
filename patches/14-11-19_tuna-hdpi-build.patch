@@ -1,6 +1,6 @@
-From ac88d0ac5fa17449af7b84dbffc34f955b4f3f19 Mon Sep 17 00:00:00 2001
+From 5fa711f46837116fd1b9f848b0365a0001b40fb4 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Mon, 7 Jul 2014 15:52:02 +0200
+Date: Wed, 19 Nov 2014 02:38:44 +0100
 Subject: [PATCH] tuna hdpi build
 
 ---
@@ -8,10 +8,10 @@ Subject: [PATCH] tuna hdpi build
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 8d1c1bc..b5d2b37 100644
+index 3501de9..e8830d0 100644
 --- a/device.mk
 +++ b/device.mk
-@@ -25,8 +25,8 @@ DEVICE_PACKAGE_OVERLAYS := device/samsung/tuna/overlay
+@@ -31,8 +31,8 @@ DEVICE_PACKAGE_OVERLAYS := device/samsung/tuna/overlay
  # currently contain all of the bitmaps at xhdpi density so
  # we do this little trick to fall back to the hdpi version
  # if the xhdpi doesn't exist.
@@ -22,7 +22,7 @@ index 8d1c1bc..b5d2b37 100644
  
  PRODUCT_PACKAGES := \
  	lights.tuna \
-@@ -178,7 +178,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -180,7 +180,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
  	ro.opengles.version=131072
  
  PRODUCT_PROPERTY_OVERRIDES += \
@@ -32,5 +32,5 @@ index 8d1c1bc..b5d2b37 100644
  PRODUCT_PROPERTY_OVERRIDES += \
  	ro.hwui.disable_scissor_opt=true
 -- 
-1.9.1
+2.1.3
 
