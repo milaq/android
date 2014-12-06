@@ -1,31 +1,29 @@
-From 1bae6eb0c1096c0e16f8e9c6aed70e42d9c081f2 Mon Sep 17 00:00:00 2001
+From 84a95cd1a032eb1a82e76ee2176a698e19a4f29b Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Wed, 12 Nov 2014 21:09:33 +0100
+Date: Sat, 6 Dec 2014 16:42:21 +0100
 Subject: [PATCH] Add support for ignoring exchange server policy (1/2)
 
-Some of us don't like the policies enforced by some exchange server configurations or the unconvinencies that come with it (safe lockscreen, etc.).
+Some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.).
 So make it possible to ignore any policies pushed by the exchange server.
 
 based on the "ExchangeBypassXposed" module by Shantanu Goel.
 
 This also requires the app to be signed with platform keys.
-
-Change-Id: I9035d4d940e1bffc877f9cdfe6abaecf570cbdbf
 ---
- Android.mk                                         |    2 --
- emailcommon/Android.mk                             |    2 --
- .../com/android/emailcommon/provider/Policy.java   |   13 ++++++++++++-
- src/com/android/email/NotificationController.java  |    3 +++
- src/com/android/email/SecurityPolicy.java          |   11 +++++++++++
- 5 files changed, 26 insertions(+), 5 deletions(-)
+ Android.mk                                                   |  2 --
+ emailcommon/Android.mk                                       |  2 --
+ emailcommon/src/com/android/emailcommon/provider/Policy.java | 11 +++++++++++
+ src/com/android/email/NotificationController.java            |  3 +++
+ src/com/android/email/SecurityPolicy.java                    | 11 +++++++++++
+ 5 files changed, 25 insertions(+), 4 deletions(-)
 
 diff --git a/Android.mk b/Android.mk
-index 8bbbd98..eb8886b 100644
+index a7dbba5..5e7cab0 100644
 --- a/Android.mk
 +++ b/Android.mk
-@@ -51,8 +51,6 @@ LOCAL_PACKAGE_NAME := Email
- 
- LOCAL_PROGUARD_FLAG_FILES := proguard.flags $(unified_email_dir)/proguard.flags
+@@ -61,8 +61,6 @@ ifeq (eng,$(TARGET_BUILD_VARIANT))
+   LOCAL_PROGUARD_FLAG_FILES += proguard-test.flags
+ endif
  
 -LOCAL_SDK_VERSION := current
 -
@@ -33,23 +31,23 @@ index 8bbbd98..eb8886b 100644
  
  # only include rules to build other stuff for the original package, not the derived package.
 diff --git a/emailcommon/Android.mk b/emailcommon/Android.mk
-index 14ea550..cafc362 100644
+index 654e20d..cafc362 100644
 --- a/emailcommon/Android.mk
 +++ b/emailcommon/Android.mk
 @@ -42,8 +42,6 @@ LOCAL_SRC_FILES += $(call all-java-files-under, $(apache_src_dir))
  LOCAL_SRC_FILES += $(imported_unified_email_files)
  LOCAL_SRC_FILES += $(call all-java-files-under, $(unified_email_src_dir)/com/android/emailcommon)
  
--LOCAL_SDK_VERSION := 17
+-LOCAL_SDK_VERSION := 14
 -
  LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
  
  include $(BUILD_STATIC_JAVA_LIBRARY)
 diff --git a/emailcommon/src/com/android/emailcommon/provider/Policy.java b/emailcommon/src/com/android/emailcommon/provider/Policy.java
-index 76b223d..88e7316 100755
+index f32b750..88ac10d 100755
 --- a/emailcommon/src/com/android/emailcommon/provider/Policy.java
 +++ b/emailcommon/src/com/android/emailcommon/provider/Policy.java
-@@ -24,6 +24,7 @@ import android.database.Cursor;
+@@ -25,6 +25,7 @@ import android.database.Cursor;
  import android.net.Uri;
  import android.os.Parcel;
  import android.os.Parcelable;
@@ -57,7 +55,7 @@ index 76b223d..88e7316 100755
  
  import com.android.emailcommon.utility.TextUtilities;
  import com.android.emailcommon.utility.Utility;
-@@ -216,6 +217,16 @@ public final class Policy extends EmailContent implements EmailContent.PolicyCol
+@@ -226,6 +227,16 @@ public final class Policy extends EmailContent implements EmailContent.PolicyCol
       * zero out complex characters for simple passwords.
       */
      public void normalize() {
@@ -74,15 +72,8 @@ index 76b223d..88e7316 100755
          if (mPasswordMode == PASSWORD_MODE_NONE) {
              mPasswordMaxFails = 0;
              mMaxScreenLockTime = 0;
-@@ -515,4 +526,4 @@ public final class Policy extends EmailContent implements EmailContent.PolicyCol
-         mProtocolPoliciesEnforced = in.readString();
-         mProtocolPoliciesUnsupported = in.readString();
-     }
--}
-\ No newline at end of file
-+}
 diff --git a/src/com/android/email/NotificationController.java b/src/com/android/email/NotificationController.java
-index cc6829f..0c701e4 100644
+index e247f6b..0bec68d 100644
 --- a/src/com/android/email/NotificationController.java
 +++ b/src/com/android/email/NotificationController.java
 @@ -31,6 +31,7 @@ import android.net.Uri;
@@ -93,17 +84,17 @@ index cc6829f..0c701e4 100644
  import android.provider.Settings;
  import android.support.v4.app.NotificationCompat;
  import android.text.TextUtils;
-@@ -510,6 +511,8 @@ public class NotificationController {
+@@ -508,6 +509,8 @@ public class NotificationController {
       * account settings screen where he can view the list of enforced policies
       */
      public void showSecurityChangedNotification(Account account) {
 +        if (SystemProperties.getBoolean("persist.exchange.nopolicy", false))
 +            return;
-         Intent intent = AccountSettings.createAccountSettingsIntent(account.mId, null, null);
-         String accountName = account.getDisplayName();
-         String ticker =
+         final Intent intent = new Intent(Intent.ACTION_VIEW,
+                 HeadlessAccountSettingsLoader.getIncomingSettingsUri(account.getId()));
+         final String accountName = account.getDisplayName();
 diff --git a/src/com/android/email/SecurityPolicy.java b/src/com/android/email/SecurityPolicy.java
-index 5605dab..3b3c284 100644
+index 3adf8b8..86db687 100644
 --- a/src/com/android/email/SecurityPolicy.java
 +++ b/src/com/android/email/SecurityPolicy.java
 @@ -31,6 +31,7 @@ import android.database.Cursor;
@@ -112,9 +103,9 @@ index 5605dab..3b3c284 100644
  import android.os.RemoteException;
 +import android.os.SystemProperties;
  
+ import com.android.email.provider.AccountReconciler;
  import com.android.email.provider.EmailProvider;
- import com.android.email.service.EmailBroadcastProcessorService;
-@@ -245,6 +246,8 @@ public class SecurityPolicy {
+@@ -246,6 +247,8 @@ public class SecurityPolicy {
       * @return true if the requested policies are active, false if not.
       */
      public boolean isActive(Policy policy) {
@@ -123,7 +114,7 @@ index 5605dab..3b3c284 100644
          int reasons = getInactiveReasons(policy);
          if (MailActivityEmail.DEBUG && (reasons != 0)) {
              StringBuilder sb = new StringBuilder("isActive for " + policy + ": ");
-@@ -315,6 +318,8 @@ public class SecurityPolicy {
+@@ -316,6 +319,8 @@ public class SecurityPolicy {
       * is needed (typically, by the user) before the required security polices are fully active.
       */
      public int getInactiveReasons(Policy policy) {
@@ -132,7 +123,7 @@ index 5605dab..3b3c284 100644
          // select aggregate set if needed
          if (policy == null) {
              policy = getAggregatePolicy();
-@@ -401,6 +406,8 @@ public class SecurityPolicy {
+@@ -402,6 +407,8 @@ public class SecurityPolicy {
       * we only proceed if we are already active as an admin.
       */
      public void setActivePolicies() {
@@ -141,7 +132,7 @@ index 5605dab..3b3c284 100644
          DevicePolicyManager dpm = getDPM();
          // compute aggregate set of policies
          Policy aggregatePolicy = getAggregatePolicy();
-@@ -651,6 +658,8 @@ public class SecurityPolicy {
+@@ -664,6 +671,8 @@ public class SecurityPolicy {
       * return to the caller if there is an unexpected failure.  The wipe includes external storage.
       */
      public void remoteWipe() {
@@ -150,7 +141,7 @@ index 5605dab..3b3c284 100644
          DevicePolicyManager dpm = getDPM();
          if (dpm.isAdminActive(mAdminName)) {
              dpm.wipeData(DevicePolicyManager.WIPE_EXTERNAL_STORAGE);
-@@ -668,6 +677,8 @@ public class SecurityPolicy {
+@@ -681,6 +690,8 @@ public class SecurityPolicy {
       * @return true if we are already active, false if we are not
       */
      public boolean isActiveAdmin() {
@@ -160,5 +151,5 @@ index 5605dab..3b3c284 100644
          return dpm.isAdminActive(mAdminName)
                  && dpm.hasGrantedPolicy(mAdminName, DeviceAdminInfo.USES_POLICY_EXPIRE_PASSWORD)
 -- 
-1.7.9.5
+2.1.1
 
