@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-
     <project path="device/asus/flo"
       name="CyanogenMod/android_device_asus_flo"
       remote="github"
@@ -22,16 +21,6 @@
       remote="github"
       revision="cm-12.0"/>
 
-    <project path="device/samsung/i9100"
-      name="CyanogenMod/android_device_samsung_i9100"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/samsung/galaxys2-common"
-      name="CyanogenMod/android_device_samsung_galaxys2-common"
-      remote="github"
-      revision="cm-11.0"/>
-
     <project path="kernel/hp/tenderloin"
       name="milaq/android_kernel_hp_tenderloin"
       remote="github"
@@ -44,11 +33,6 @@
 
     <project path="kernel/lge/hammerhead"
       name="CyanogenMod/android_kernel_lge_hammerhead"
-      remote="github"
-      revision="cm-12.0"/>
-
-    <project path="kernel/samsung/smdk4412"
-      name="CyanogenMod/android_kernel_samsung_smdk4412"
       remote="github"
       revision="cm-12.0"/>
 
@@ -73,16 +57,6 @@
       revision="cm-12.0"/>
 
     <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
-
-    <project path="hardware/samsung"
-      name="CyanogenMod/android_hardware_samsung"
-      remote="github"
-      revision="cm-12.0"/>
-
-    <project path="packages/apps/SamsungServiceMode"
-      name="CyanogenMod/android_packages_apps_SamsungServiceMode"
-      remote="github"
-      revision="cm-11.0"/>
 
     <project path="hardware/atheros/wlan"
       name="CyanogenMod/android_hardware_atheros_wlan"
