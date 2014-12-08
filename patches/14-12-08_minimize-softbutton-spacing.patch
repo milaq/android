@@ -1,0 +1,83 @@
+From a9e3b89114293efb043cdae9cf7765b43b46ec78 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Mon, 8 Dec 2014 15:35:24 +0100
+Subject: [PATCH] minimize softbutton spacing
+
+---
+ packages/SystemUI/res/layout/navigation_bar.xml | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/packages/SystemUI/res/layout/navigation_bar.xml b/packages/SystemUI/res/layout/navigation_bar.xml
+index 16027d9..42c5f23 100644
+--- a/packages/SystemUI/res/layout/navigation_bar.xml
++++ b/packages/SystemUI/res/layout/navigation_bar.xml
+@@ -51,6 +51,7 @@
+             <com.android.systemui.statusbar.policy.KeyButtonView android:id="@+id/back"
+                 android:layout_width="@dimen/navigation_key_width"
+                 android:layout_height="match_parent"
++                android:layout_marginStart="40dp"
+                 android:src="@drawable/ic_sysbar_back"
+                 systemui:keyCode="4"
+                 android:layout_weight="0"
+@@ -81,6 +82,7 @@
+             <com.android.systemui.statusbar.policy.KeyButtonView android:id="@+id/recent_apps"
+                 android:layout_width="@dimen/navigation_key_width"
+                 android:layout_height="match_parent"
++                android:layout_marginEnd="40dp"
+                 android:src="@drawable/ic_sysbar_recent"
+                 android:layout_weight="0"
+                 android:contentDescription="@string/accessibility_recent"
+@@ -121,7 +123,7 @@
+             <ImageView
+                 android:layout_width="80dp"
+                 android:layout_height="match_parent"
+-                android:layout_marginStart="40dp"
++                android:layout_marginStart="80dp"
+                 android:src="@drawable/ic_sysbar_lights_out_dot_small"
+                 android:scaleType="center"
+                 android:layout_weight="0"
+@@ -147,7 +149,7 @@
+                 />
+             <ImageView
+                 android:layout_width="80dp"
+-                android:layout_marginEnd="40dp"
++                android:layout_marginEnd="80dp"
+                 android:layout_height="match_parent"
+                 android:src="@drawable/ic_sysbar_lights_out_dot_small"
+                 android:scaleType="center"
+@@ -211,6 +213,7 @@
+ 
+             <com.android.systemui.statusbar.policy.KeyButtonView android:id="@+id/recent_apps"
+                 android:layout_height="80dp"
++                android:layout_marginTop="40dp"
+                 android:layout_width="match_parent"
+                 android:src="@drawable/ic_sysbar_recent_land"
+                 android:layout_weight="0"
+@@ -239,6 +242,7 @@
+                 />
+             <com.android.systemui.statusbar.policy.KeyButtonView android:id="@+id/back"
+                 android:layout_height="80dp"
++                android:layout_marginBottom="40dp"
+                 android:layout_width="match_parent"
+                 android:src="@drawable/ic_sysbar_back_land"
+                 android:scaleType="center"
+@@ -264,7 +268,7 @@
+             >
+             <ImageView
+                 android:layout_height="80dp"
+-                android:layout_marginTop="40dp"
++                android:layout_marginTop="80dp"
+                 android:layout_width="match_parent"
+                 android:src="@drawable/ic_sysbar_lights_out_dot_small"
+                 android:scaleType="center"
+@@ -291,7 +295,7 @@
+                 />
+             <ImageView
+                 android:layout_height="80dp"
+-                android:layout_marginBottom="40dp"
++                android:layout_marginBottom="80dp"
+                 android:layout_width="match_parent"
+                 android:src="@drawable/ic_sysbar_lights_out_dot_small"
+                 android:scaleType="center"
+--
+1.9.1
