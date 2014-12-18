@@ -133,8 +133,6 @@
       revision="cm-11.0"/>
 
     <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
-    <remove-project name="CyanogenMod/android_bootable_recovery"/>
-    <remove-project name="CyanogenMod/android_bootable_recovery-cm"/>
 
     <project path="hardware/samsung"
       name="CyanogenMod/android_hardware_samsung"
@@ -176,11 +174,6 @@
       remote="github"
       revision="kitkat"/>
 
-    <project path="bootable/recovery"
-      name="milaq/android_bootable_recovery-mini"
-      remote="github"
-      revision="cm-11.0"/>
-  
     <project path="vendor/mlq"
       name="milaq/android_vendor_mlq"
       remote="github"
