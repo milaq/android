@@ -59,7 +59,7 @@
     <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
 
     <project path="hardware/qcom/display-caf/msm8660"
-      name="ivanich/android_hardware_qcom_display"
+      name="milaq/android_hardware_qcom_display"
       revision="cm-12.0-caf-8660" />
 
     <project path="hardware/qcom/media-caf/msm8660"
