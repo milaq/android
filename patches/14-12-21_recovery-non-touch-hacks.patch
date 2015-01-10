@@ -5,41 +5,9 @@ Subject: [PATCH] recovery: non-touch hacks
 
 this is a recovery, not an OS you should use regularly
 ---
- screen_ui.cpp | 6 +++---
- ui.cpp        | 2 ++
- 2 files changed, 5 insertions(+), 3 deletions(-)
+ ui.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/screen_ui.cpp b/screen_ui.cpp
-index eb3352e..68f5162 100644
---- a/screen_ui.cpp
-+++ b/screen_ui.cpp
-@@ -278,7 +278,7 @@ void ScreenRecoveryUI::draw_dialog()
-             gr_text(2, y, text[row], 0);
-             y += cy+2;
-         }
--        gr_set_font("menu");
-+        gr_set_font("log");
-     }
- 
-     if (dialog_icon == ERROR) {
-@@ -340,7 +340,7 @@ void ScreenRecoveryUI::draw_screen_locked()
-                 --row;
-                 if (row < 0) row = log_text_rows-1;
-             }
--            gr_set_font("menu");
-+            gr_set_font("log");
-             return;
-         }
- 
-@@ -452,7 +452,7 @@ void ScreenRecoveryUI::Init()
- 
-     gr_set_font("log");
-     gr_font_size(&log_char_width, &log_char_height);
--    gr_set_font("menu");
-+    gr_set_font("log");
-     gr_font_size(&char_width, &char_height);
- 
-     log_text_rows = gr_fb_height() / log_char_height;
 diff --git a/ui.cpp b/ui.cpp
 index a1587dc..1418458 100644
 --- a/ui.cpp
