@@ -81,4 +81,9 @@
       remote="github"
       revision="master"/>
 
+    <project path="prebuilts/gcc/linux-x86/arm/"
+      name="milaq/android_toolchains"
+      remote="github"
+      revision="master" />
+
   </manifest>
