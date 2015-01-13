@@ -1,38 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-    <project path="device/asus/flo"
-      name="CyanogenMod/android_device_asus_flo"
-      remote="github"
-      revision="cm-12.0"/>
-
     <project path="device/hp/tenderloin"
       name="milaq/android_device_hp_tenderloin"
       remote="github"
       revision="cm-12.0"/>
 
-    <project path="device/lge/hammerhead"
-      name="CyanogenMod/android_device_lge_hammerhead"
-      remote="github"
-      revision="cm-12.0"/>
-
-    <project path="device/lge/mako"
-      name="CyanogenMod/android_device_lge_mako"
-      remote="github"
-      revision="cm-12.0"/>
-
     <project path="kernel/hp/tenderloin"
       name="milaq/android_kernel_hp_tenderloin"
-      remote="github"
-      revision="cm-12.0"/>
-
-    <project path="kernel/google/msm"
-      name="CyanogenMod/android_kernel_google_msm"
-      remote="github"
-      revision="cm-12.0"/>
-
-    <project path="kernel/lge/hammerhead"
-      name="CyanogenMod/android_kernel_lge_hammerhead"
       remote="github"
       revision="cm-12.0"/>
 
