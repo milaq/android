@@ -34,3 +34,55 @@ function check_clean {
 # insert cherry-picks below
 #
 
+# wifi.c: allow devices to specify driver delay
+PATCH=15-01-13_wifi.c-allow-devices-to-specify-driver-delay
+FOLDER=hardware/libhardware_legacy
+###
+pushd ${FOLDER}
+wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
+
+# btservice/AdaperState: handle ENABLED_READY in OffState
+PATCH=13-11-25_btservice-AdaperState-handle-ENABLED_READY
+FOLDER=packages/apps/Bluetooth
+###
+pushd ${FOLDER}
+wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
+
+# mkimage for OMAP
+FOLDER=system/extras
+###
+pushd ${FOLDER}
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_extras refs/changes/37/78537/1 && git cherry-pick FETCH_HEAD
+check_clean
+
+# invensense: allow other devices to build a specific sensor
+FOLDER=hardware/invensense
+###
+pushd ${FOLDER}
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_hardware_invensense refs/changes/23/82223/1 && git cherry-pick FETCH_HEAD
+check_clean
+
+# sepolicy: add a domain for lvm
+FOLDER=external/sepolicy
+###
+pushd ${FOLDER}
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_external_sepolicy refs/changes/60/82660/2 && git cherry-pick FETCH_HEAD
+check_clean
+
+# art: allow devices to opt out of GAP check
+FOLDER=art
+###
+pushd ${FOLDER}
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_art refs/changes/61/82661/1 && git cherry-pick FETCH_HEAD
+check_clean
+
+# libart: Allow adjustment of the base address
+FOLDER=build
+###
+pushd ${FOLDER}
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_build refs/changes/68/82668/3 && git cherry-pick FETCH_HEAD
+check_clean
