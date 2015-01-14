@@ -1,13 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
+    <project path="device/asus/flo"
+      name="CyanogenMod/android_device_asus_flo"
+      remote="github"
+      revision="cm-12.0"/>
+
     <project path="device/hp/tenderloin"
       name="milaq/android_device_hp_tenderloin"
       remote="github"
       revision="cm-12.0"/>
 
+    <project path="device/lge/hammerhead"
+      name="CyanogenMod/android_device_lge_hammerhead"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="device/lge/mako"
+      name="CyanogenMod/android_device_lge_mako"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="device/motorola/falcon"
+      name="CyanogenMod/android_device_motorola_falcon"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="device/motorola/msm8226-common"
+      name="CyanogenMod/android_device_motorola_msm8226-common"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="device/qcom/common"
+      name="CyanogenMod/android_device_qcom_common"
+      remote="github"
+      revision="cm-12.0"/>
+
     <project path="kernel/hp/tenderloin"
       name="milaq/android_kernel_hp_tenderloin"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="kernel/google/msm"
+      name="CyanogenMod/android_kernel_google_msm"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="kernel/lge/hammerhead"
+      name="CyanogenMod/android_kernel_lge_hammerhead"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="kernel/motorola/msm8226"
+      name="CyanogenMod/android_kernel_motorola_msm8226"
       remote="github"
       revision="cm-12.0"/>
 
@@ -38,12 +83,30 @@
 
     <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
 
+    <project path="hardware/qcom/fm"
+      name="CyanogenMod/android_hardware_qcom_fm"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="hardware/qcom/fm"
+      name="CyanogenMod/android_hardware_qcom_fm"
+      remote="github"
+      revision="cm-12.0"/>
+
+    <project path="hardware/qcom/display-caf-new"
+      name="CyanogenMod/android_hardware_qcom_display-caf-new"
+      revision="cm-12.0" />
+
+    <project path="hardware/qcom/media-caf-new"
+      name="CyanogenMod/android_hardware_qcom_media-caf-new"
+      revision="cm-12.0" />
+
     <project path="hardware/qcom/display-caf/msm8660"
       name="milaq/android_hardware_qcom_display"
       revision="cm-12.0-caf-8660" />
 
     <project path="hardware/qcom/media-caf/msm8660"
-      name="ivanich/android_hardware_qcom_media"
+      name="milaq/android_hardware_qcom_media"
       revision="cm-12.0-caf-8660" />
 
     <project path="hardware/atheros/wlan"
