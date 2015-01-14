@@ -88,14 +88,6 @@
       remote="github"
       revision="cm-12.0"/>
 
-    <project path="hardware/qcom/display-caf-new"
-      name="CyanogenMod/android_hardware_qcom_display-caf-new"
-      revision="cm-12.0" />
-
-    <project path="hardware/qcom/media-caf-new"
-      name="CyanogenMod/android_hardware_qcom_media-caf-new"
-      revision="cm-12.0" />
-
     <project path="hardware/qcom/display-caf/msm8660"
       name="milaq/android_hardware_qcom_display"
       revision="cm-12.0-caf-8660" />
