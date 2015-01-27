@@ -52,13 +52,6 @@ wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
-# mkimage for OMAP
-FOLDER=system/extras
-###
-pushd ${FOLDER}
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_extras refs/changes/37/78537/1 && git cherry-pick FETCH_HEAD
-check_clean
-
 # invensense: allow other devices to build a specific sensor
 FOLDER=hardware/invensense
 ###
