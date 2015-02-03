@@ -1,0 +1,113 @@
+From 4a487aaccf88c10e2bbc840f25bd0347cbf815e9 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Tue, 3 Feb 2015 12:30:30 +0100
+Subject: [PATCH] minimize softbutton spacing
+
+---
+ packages/SystemUI/res/layout/mid_navigation_bar_land.xml | 8 ++++----
+ packages/SystemUI/res/layout/mid_navigation_bar_port.xml | 4 ++--
+ packages/SystemUI/res/layout/navigation_bar.xml          | 8 ++++----
+ packages/SystemUI/res/values/dimens.xml                  | 2 +-
+ 4 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/packages/SystemUI/res/layout/mid_navigation_bar_land.xml b/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
+index 277d594..63716fe 100644
+--- a/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
++++ b/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
+@@ -39,14 +39,14 @@
+ 
+         <com.android.systemui.statusbar.policy.KeyButtonView
+             android:id="@+id/one"
+-            android:layout_height="40dp"
++            android:layout_height="80dp"
+             android:layout_width="match_parent"
+             android:layout_weight="0" />
+         <com.android.systemui.statusbar.policy.KeyButtonView
+             android:id="@+id/dpad_left"
+             android:visibility="gone"
+             android:layout_width="match_parent"
+-            android:layout_height="40dp"
++            android:layout_height="80dp"
+             android:layout_weight="0"
+             android:scaleType="fitCenter"
+             systemui:keyRepeat="true"/>
+@@ -109,13 +109,13 @@
+             android:id="@+id/dpad_right"
+             android:visibility="gone"
+             android:layout_width="match_parent"
+-            android:layout_height="40dp"
++            android:layout_height="80dp"
+             android:layout_weight="0"
+             android:scaleType="fitCenter"
+             systemui:keyRepeat="true" />
+         <com.android.systemui.statusbar.policy.KeyButtonView
+             android:id="@+id/six"
+-            android:layout_height="40dp"
++            android:layout_height="80dp"
+             android:layout_width="match_parent"
+             android:layout_weight="0"
+             systemui:keyRepeat="true" />
+diff --git a/packages/SystemUI/res/layout/mid_navigation_bar_port.xml b/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
+index 9fb1a1b..fcd8289 100644
+--- a/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
++++ b/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
+@@ -32,7 +32,7 @@
+         <com.android.systemui.statusbar.policy.KeyButtonView
+             android:id="@+id/dpad_left"
+             android:visibility="gone"
+-            android:layout_width="40dp"
++            android:layout_width="80dp"
+             android:layout_height="match_parent"
+             android:layout_weight="0"
+             android:scaleType="fitCenter"
+@@ -113,7 +113,7 @@
+         <com.android.systemui.statusbar.policy.KeyButtonView
+             android:id="@+id/dpad_right"
+             android:visibility="gone"
+-            android:layout_width="40dp"
++            android:layout_width="80dp"
+             android:layout_height="match_parent"
+             android:layout_weight="0"
+             android:scaleType="fitCenter"
+diff --git a/packages/SystemUI/res/layout/navigation_bar.xml b/packages/SystemUI/res/layout/navigation_bar.xml
+index 1ac81d9..ab37e52 100644
+--- a/packages/SystemUI/res/layout/navigation_bar.xml
++++ b/packages/SystemUI/res/layout/navigation_bar.xml
+@@ -50,8 +50,8 @@
+             android:layout_width="match_parent"
+             android:orientation="horizontal"
+             android:gravity="center_horizontal"
+-            android:layout_marginStart="40dp"
+-            android:layout_marginEnd="40dp"
++            android:layout_marginStart="80dp"
++            android:layout_marginEnd="80dp"
+             android:layout_gravity="center_horizontal"
+             android:id="@+id/lights_out"
+             android:visibility="gone"
+@@ -142,8 +142,8 @@
+             android:orientation="vertical"
+             android:gravity="center_vertical"
+             android:layout_gravity="center_vertical"
+-            android:layout_marginTop="40dp"
+-            android:layout_marginBottom="40dp"
++            android:layout_marginTop="80dp"
++            android:layout_marginBottom="80dp"
+             android:id="@+id/lights_out"
+             android:visibility="gone"
+             >
+diff --git a/packages/SystemUI/res/values/dimens.xml b/packages/SystemUI/res/values/dimens.xml
+index fcdc015..c5216b5 100644
+--- a/packages/SystemUI/res/values/dimens.xml
++++ b/packages/SystemUI/res/values/dimens.xml
+@@ -109,7 +109,7 @@
+     <dimen name="navigation_key_width">80dip</dimen>
+ 
+     <!-- The width of the view containing the menu/ime navigation bar icons -->
+-    <dimen name="navigation_extra_key_width">40dip</dimen>
++    <dimen name="navigation_extra_key_width">80dip</dimen>
+ 
+     <!-- Default distance beyond which snaps to the matching target -->
+     <dimen name="navbar_search_snap_margin">40dip</dimen>
+-- 
+2.2.2
+
