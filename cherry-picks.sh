@@ -60,3 +60,13 @@ pushd ${FOLDER}
 wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
+
+# make_ext4fs: workaround for a glibc scandir bug
+PATCH=15-03-09_make_ext4fs-workaround-for-a-glibc-scandir-bug
+FOLDER=system/extras
+###
+pushd ${FOLDER}
+wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
+
