@@ -1,30 +1,26 @@
-From def5c4e4374ead983515f74185cb049456580dd2 Mon Sep 17 00:00:00 2001
+From 2c6c13aac852a025fffda714454053adad9936f9 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Tue, 19 Aug 2014 23:08:56 +0200
+Date: Wed, 15 Apr 2015 15:49:05 +0200
 Subject: [PATCH] Revert "camera: Remove deprecated HTC camera support code"
 
 This reverts commit 0f4d10e7ea9aa431542a10d73fea372ca081e5c1.
-
-Conflicts:
-
-	media/libstagefright/OMXCodec.cpp
 ---
- camera/Android.mk                                  |    3 +
- camera/CameraParameters.cpp                        |   34 ++++++++++++++
- include/camera/CameraParameters.h                  |   49 ++++++++++++++++++++
- media/libstagefright/Android.mk                    |    4 ++
- media/libstagefright/CameraSource.cpp              |    4 ++
- media/libstagefright/OMXCodec.cpp                  |    4 ++
- services/camera/libcameraservice/Android.mk        |   12 +++++
- services/camera/libcameraservice/CameraService.cpp |   24 ++++++++++
- .../device1/CameraHardwareInterface.h              |   14 ++++++
- 9 files changed, 148 insertions(+), 0 deletions(-)
+ camera/Android.mk                                  |  3 ++
+ camera/CameraParameters.cpp                        | 34 +++++++++++++++
+ include/camera/CameraParameters.h                  | 49 ++++++++++++++++++++++
+ media/libstagefright/Android.mk                    |  4 ++
+ media/libstagefright/CameraSource.cpp              |  5 +++
+ media/libstagefright/OMXCodec.cpp                  |  4 ++
+ services/camera/libcameraservice/Android.mk        | 12 ++++++
+ services/camera/libcameraservice/CameraService.cpp | 24 +++++++++++
+ .../device1/CameraHardwareInterface.h              | 14 +++++++
+ 9 files changed, 149 insertions(+)
 
 diff --git a/camera/Android.mk b/camera/Android.mk
-index b361a2b..3d5afab 100644
+index 83eccd1..e27afb1 100644
 --- a/camera/Android.mk
 +++ b/camera/Android.mk
-@@ -43,6 +43,9 @@ endif
+@@ -48,6 +48,9 @@ endif
  ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
  	LOCAL_CFLAGS += -DQCOM_HARDWARE
  endif
@@ -35,10 +31,10 @@ index b361a2b..3d5afab 100644
  LOCAL_MODULE:= libcamera_client
  
 diff --git a/camera/CameraParameters.cpp b/camera/CameraParameters.cpp
-index 77eb5b8..16fa1ab 100644
+index 31be59d..f851204 100644
 --- a/camera/CameraParameters.cpp
 +++ b/camera/CameraParameters.cpp
-@@ -44,6 +44,7 @@ const char CameraParameters::KEY_PREVIEW_FRAME_RATE_FIXED_MODE[] = "frame-rate-f
+@@ -45,6 +45,7 @@ const char CameraParameters::KEY_PREVIEW_FRAME_RATE_FIXED_MODE[] = "frame-rate-f
  const char CameraParameters::KEY_PICTURE_SIZE[] = "picture-size";
  const char CameraParameters::KEY_SUPPORTED_PICTURE_SIZES[] = "picture-size-values";
  const char CameraParameters::KEY_PICTURE_FORMAT[] = "picture-format";
@@ -46,7 +42,7 @@ index 77eb5b8..16fa1ab 100644
  const char CameraParameters::KEY_SUPPORTED_PICTURE_FORMATS[] = "picture-format-values";
  const char CameraParameters::KEY_JPEG_THUMBNAIL_WIDTH[] = "jpeg-thumbnail-width";
  const char CameraParameters::KEY_JPEG_THUMBNAIL_HEIGHT[] = "jpeg-thumbnail-height";
-@@ -393,6 +394,9 @@ const char CameraParameters::FOCUS_MODE_CONTINUOUS_PICTURE[] = "continuous-pictu
+@@ -394,6 +395,9 @@ const char CameraParameters::FOCUS_MODE_CONTINUOUS_PICTURE[] = "continuous-pictu
  const char CameraParameters::FOCUS_MODE_MANUAL_POSITION[] = "manual";
  #endif
  #if defined(QCOM_HARDWARE)
@@ -56,7 +52,7 @@ index 77eb5b8..16fa1ab 100644
  const char CameraParameters::FOCUS_MODE_NORMAL[] = "normal";
  
  
-@@ -436,11 +440,26 @@ const char CameraParameters::SKIN_TONE_ENHANCEMENT_ENABLE[] = "enable";
+@@ -437,11 +441,26 @@ const char CameraParameters::SKIN_TONE_ENHANCEMENT_ENABLE[] = "enable";
  const char CameraParameters::SKIN_TONE_ENHANCEMENT_DISABLE[] = "disable";
  
  const char CameraParameters::KEY_SHARPNESS[] = "sharpness";
@@ -83,7 +79,7 @@ index 77eb5b8..16fa1ab 100644
  
  //Values for DENOISE
  const char CameraParameters::DENOISE_OFF[] = "denoise-off";
-@@ -455,6 +474,9 @@ const char CameraParameters::SELECTABLE_ZONE_AF_FRAME_AVERAGE[] = "frame-average
+@@ -456,6 +475,9 @@ const char CameraParameters::SELECTABLE_ZONE_AF_FRAME_AVERAGE[] = "frame-average
  const char CameraParameters::FACE_DETECTION_OFF[] = "off";
  const char CameraParameters::FACE_DETECTION_ON[] = "on";
  
@@ -93,7 +89,7 @@ index 77eb5b8..16fa1ab 100644
  // Values for MCE settings.
  const char CameraParameters::MCE_ENABLE[] = "enable";
  const char CameraParameters::MCE_DISABLE[] = "disable";
-@@ -777,6 +799,13 @@ void CameraParameters::getSupportedPreviewSizes(Vector<Size> &sizes) const
+@@ -782,6 +804,13 @@ void CameraParameters::getSupportedPreviewSizes(Vector<Size> &sizes) const
  }
  
  #ifdef QCOM_HARDWARE
@@ -107,7 +103,7 @@ index 77eb5b8..16fa1ab 100644
  void CameraParameters::getSupportedHfrSizes(Vector<Size> &sizes) const
  {
      const char *hfrSizesStr = get(KEY_SUPPORTED_HFR_SIZES);
-@@ -883,6 +912,11 @@ void CameraParameters::getSupportedPictureSizes(Vector<Size> &sizes) const
+@@ -888,6 +917,11 @@ void CameraParameters::getSupportedPictureSizes(Vector<Size> &sizes) const
      parseSizesList(pictureSizesStr, sizes);
  }
  
@@ -120,10 +116,10 @@ index 77eb5b8..16fa1ab 100644
  {
      set(KEY_PICTURE_FORMAT, format);
 diff --git a/include/camera/CameraParameters.h b/include/camera/CameraParameters.h
-index 1280ea8..18021d4 100644
+index a5d9c65..3bf50d4 100644
 --- a/include/camera/CameraParameters.h
 +++ b/include/camera/CameraParameters.h
-@@ -122,6 +122,7 @@ public:
+@@ -123,6 +123,7 @@ public:
      void setPictureSize(int width, int height);
      void getPictureSize(int *width, int *height) const;
      void getSupportedPictureSizes(Vector<Size> &sizes) const;
@@ -131,7 +127,7 @@ index 1280ea8..18021d4 100644
      void setPictureFormat(const char *format);
      const char *getPictureFormat() const;
  #ifdef QCOM_HARDWARE
-@@ -187,6 +188,20 @@ public:
+@@ -188,6 +189,20 @@ public:
      static const char KEY_SUPPORTED_PREVIEW_FRAME_RATE_MODES[];
      static const char KEY_PREVIEW_FRAME_RATE_AUTO_MODE[];
      static const char KEY_PREVIEW_FRAME_RATE_FIXED_MODE[];
@@ -152,7 +148,7 @@ index 1280ea8..18021d4 100644
  #endif
      // The dimensions for captured pictures in pixels (width x height).
      // Example value: "1024x768". Read/write.
-@@ -194,6 +209,8 @@ public:
+@@ -195,6 +210,8 @@ public:
      // Supported dimensions for captured pictures in pixels.
      // Example value: "2048x1536,1024x768". Read only.
      static const char KEY_SUPPORTED_PICTURE_SIZES[];
@@ -161,7 +157,7 @@ index 1280ea8..18021d4 100644
      // The image format for captured pictures. See CAMERA_MSG_COMPRESSED_IMAGE
      // in frameworks/base/include/camera/Camera.h.
      // Example value: "jpeg" or PIXEL_FORMAT_XXX constants. Read/write.
-@@ -960,6 +977,22 @@ public:
+@@ -961,6 +978,22 @@ public:
      static const char LIGHTFX_HDR[];
  
  #ifdef QCOM_HARDWARE
@@ -184,7 +180,7 @@ index 1280ea8..18021d4 100644
      // Normal focus mode. Applications should call
      // CameraHardwareInterface.autoFocus to start the focus in this mode.
      static const char FOCUS_MODE_NORMAL[];
-@@ -983,10 +1016,19 @@ public:
+@@ -984,10 +1017,19 @@ public:
  
      static const char KEY_SHARPNESS[];
      static const char KEY_MAX_SHARPNESS[];
@@ -204,7 +200,7 @@ index 1280ea8..18021d4 100644
  
      static const char KEY_HISTOGRAM[] ;
      static const char KEY_SUPPORTED_HISTOGRAM_MODES[] ;
-@@ -1012,6 +1054,10 @@ public:
+@@ -1013,6 +1055,10 @@ public:
      static const char FACE_DETECTION_OFF[];
      static const char FACE_DETECTION_ON[];
  
@@ -215,7 +211,7 @@ index 1280ea8..18021d4 100644
      // Values for MCE settings.
      static const char MCE_ENABLE[];
      static const char MCE_DISABLE[];
-@@ -1079,6 +1125,9 @@ public:
+@@ -1080,6 +1126,9 @@ public:
      int getOrientation() const;
      void setOrientation(int orientation);
      void setPreviewFpsRange(int minFPS,int maxFPS);
@@ -226,7 +222,7 @@ index 1280ea8..18021d4 100644
  #endif
  
 diff --git a/media/libstagefright/Android.mk b/media/libstagefright/Android.mk
-index 7c7da8c..2c97356 100644
+index af55235..2edf6f7 100644
 --- a/media/libstagefright/Android.mk
 +++ b/media/libstagefright/Android.mk
 @@ -22,6 +22,10 @@ include $(CLEAR_VARS)
@@ -241,10 +237,10 @@ index 7c7da8c..2c97356 100644
          ACodec.cpp                        \
          AACExtractor.cpp                  \
 diff --git a/media/libstagefright/CameraSource.cpp b/media/libstagefright/CameraSource.cpp
-index 295c0f5..89618a9 100644
+index 4978c08..dbc05b1 100644
 --- a/media/libstagefright/CameraSource.cpp
 +++ b/media/libstagefright/CameraSource.cpp
-@@ -362,11 +362,13 @@ status_t CameraSource::configureCamera(
+@@ -382,11 +382,14 @@ status_t CameraSource::configureCamera(
          ALOGV("Supported frame rates: %s", supportedFrameRates);
          char buf[4];
          snprintf(buf, 4, "%d", frameRate);
@@ -255,10 +251,11 @@ index 295c0f5..89618a9 100644
              return BAD_VALUE;
          }
 +#endif
- 
++
          // The frame rate is supported, set the camera to the requested value.
          params->setPreviewFrameRate(frameRate);
-@@ -464,11 +466,13 @@ status_t CameraSource::checkFrameRate(
+         isCameraParamChanged = true;
+@@ -483,11 +486,13 @@ status_t CameraSource::checkFrameRate(
  
      // Check the actual video frame rate against the target/requested
      // video frame rate.
@@ -273,10 +270,10 @@ index 295c0f5..89618a9 100644
      // Good now.
      mVideoFrameRate = frameRateActual;
 diff --git a/media/libstagefright/OMXCodec.cpp b/media/libstagefright/OMXCodec.cpp
-index 97967d3..beac689 100644
+index fc58bfd..afe2fc1 100644
 --- a/media/libstagefright/OMXCodec.cpp
 +++ b/media/libstagefright/OMXCodec.cpp
-@@ -358,6 +358,10 @@ uint32_t OMXCodec::getComponentQuirks(
+@@ -379,6 +379,10 @@ uint32_t OMXCodec::getComponentQuirks(
          quirks |= kSupportsMultipleFramesPerInputBuffer;
      }
      if (list->codecHasQuirk(
@@ -311,7 +308,7 @@ index 112b14e..e4f6852 100644
      LOCAL_CFLAGS += -DCAMERA_MSG_MGMT
  endif
 diff --git a/services/camera/libcameraservice/CameraService.cpp b/services/camera/libcameraservice/CameraService.cpp
-index eab3c2a..558a838 100644
+index 994ce26..0c8bae1 100644
 --- a/services/camera/libcameraservice/CameraService.cpp
 +++ b/services/camera/libcameraservice/CameraService.cpp
 @@ -21,6 +21,8 @@
@@ -360,7 +357,7 @@ index eab3c2a..558a838 100644
          client = mClient[cameraId].promote();
          if (client != 0) {
 diff --git a/services/camera/libcameraservice/device1/CameraHardwareInterface.h b/services/camera/libcameraservice/device1/CameraHardwareInterface.h
-index 6d05127..18ea742 100644
+index 7e71c87..b760361 100644
 --- a/services/camera/libcameraservice/device1/CameraHardwareInterface.h
 +++ b/services/camera/libcameraservice/device1/CameraHardwareInterface.h
 @@ -676,6 +676,9 @@ private:
@@ -399,4 +396,5 @@ index 6d05127..18ea742 100644
          mHalPreviewWindow.nw.set_crop = __set_crop;
          mHalPreviewWindow.nw.set_timestamp = __set_timestamp;
 -- 
-1.7.9
+2.3.5
+

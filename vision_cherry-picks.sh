@@ -44,7 +44,7 @@ git am ${PATCH}.patch
 check_clean
 
 # legacy camera support part 2
-PATCH=14-08-19_legacy-camera-support-2
+PATCH=15-04-15_legacy-camera-support-2
 FOLDER=frameworks/av
 ###
 pushd ${FOLDER}
