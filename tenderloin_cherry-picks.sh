@@ -39,7 +39,7 @@ PATCH=15-01-13_wifi.c-allow-devices-to-specify-driver-delay
 FOLDER=hardware/libhardware_legacy
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
@@ -48,7 +48,7 @@ PATCH=13-11-25_btservice-AdaperState-handle-ENABLED_READY
 FOLDER=packages/apps/Bluetooth
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 

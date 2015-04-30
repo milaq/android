@@ -39,7 +39,7 @@ PATCH=14-12-06_Add-support-for-ignoring-exchange-server-policy-1-2
 FOLDER=packages/apps/Email
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
@@ -48,7 +48,7 @@ PATCH=14-12-21_recovery-non-touch-hacks
 FOLDER=bootable/recovery
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
@@ -57,7 +57,7 @@ PATCH=14-12-06_Add-support-for-ignoring-exchange-server-policy-2-2
 FOLDER=packages/apps/Exchange
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
@@ -66,7 +66,7 @@ PATCH=15-03-09_make_ext4fs-workaround-for-a-glibc-scandir-bug
 FOLDER=system/extras
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 

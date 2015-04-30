@@ -39,7 +39,7 @@ PATCH=14-11-19_hammerhead-xhdpi-build
 FOLDER=device/lge/hammerhead
 ###
 pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
@@ -48,6 +48,6 @@ PATCH=15-03-02_minimize-softbutton-spacing
 FOLDER=frameworks/base
 ###
 pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
