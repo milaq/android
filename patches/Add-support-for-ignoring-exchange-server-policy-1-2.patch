@@ -1,37 +1,22 @@
-From 84a95cd1a032eb1a82e76ee2176a698e19a4f29b Mon Sep 17 00:00:00 2001
+From c4869d19017d684bde516cfa5bd61f2806be7a44 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Sat, 6 Dec 2014 16:42:21 +0100
+Date: Thu, 30 Apr 2015 17:07:30 +0200
 Subject: [PATCH] Add support for ignoring exchange server policy (1/2)
 
-Some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.).
-So make it possible to ignore any policies pushed by the exchange server.
+Some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.). So make it possible to ignore any policies pushed by the exchange server.
 
 based on the "ExchangeBypassXposed" module by Shantanu Goel.
 
 This also requires the app to be signed with platform keys.
 ---
- Android.mk                                                   |  2 --
- emailcommon/Android.mk                                       |  2 --
- emailcommon/src/com/android/emailcommon/provider/Policy.java | 11 +++++++++++
- src/com/android/email/NotificationController.java            |  3 +++
- src/com/android/email/SecurityPolicy.java                    | 11 +++++++++++
- 5 files changed, 25 insertions(+), 4 deletions(-)
+ emailcommon/Android.mk                                      |  2 --
+ .../src/com/android/emailcommon/provider/Policy.java        | 13 ++++++++++++-
+ provider_src/com/android/email/SecurityPolicy.java          | 10 ++++++++++
+ src/com/android/email/EmailNotificationController.java      |  3 +++
+ 4 files changed, 25 insertions(+), 3 deletions(-)
 
-diff --git a/Android.mk b/Android.mk
-index a7dbba5..5e7cab0 100644
---- a/Android.mk
-+++ b/Android.mk
-@@ -61,8 +61,6 @@ ifeq (eng,$(TARGET_BUILD_VARIANT))
-   LOCAL_PROGUARD_FLAG_FILES += proguard-test.flags
- endif
- 
--LOCAL_SDK_VERSION := current
--
- include $(BUILD_PACKAGE)
- 
- # only include rules to build other stuff for the original package, not the derived package.
 diff --git a/emailcommon/Android.mk b/emailcommon/Android.mk
-index 654e20d..cafc362 100644
+index 14ea550..cafc362 100644
 --- a/emailcommon/Android.mk
 +++ b/emailcommon/Android.mk
 @@ -42,8 +42,6 @@ LOCAL_SRC_FILES += $(call all-java-files-under, $(apache_src_dir))
@@ -44,7 +29,7 @@ index 654e20d..cafc362 100644
  
  include $(BUILD_STATIC_JAVA_LIBRARY)
 diff --git a/emailcommon/src/com/android/emailcommon/provider/Policy.java b/emailcommon/src/com/android/emailcommon/provider/Policy.java
-index f32b750..88ac10d 100755
+index f32b750..c91d8e0 100755
 --- a/emailcommon/src/com/android/emailcommon/provider/Policy.java
 +++ b/emailcommon/src/com/android/emailcommon/provider/Policy.java
 @@ -25,6 +25,7 @@ import android.database.Cursor;
@@ -72,49 +57,27 @@ index f32b750..88ac10d 100755
          if (mPasswordMode == PASSWORD_MODE_NONE) {
              mPasswordMaxFails = 0;
              mMaxScreenLockTime = 0;
-diff --git a/src/com/android/email/NotificationController.java b/src/com/android/email/NotificationController.java
-index e247f6b..0bec68d 100644
---- a/src/com/android/email/NotificationController.java
-+++ b/src/com/android/email/NotificationController.java
-@@ -31,6 +31,7 @@ import android.net.Uri;
- import android.os.Handler;
- import android.os.Looper;
- import android.os.Process;
-+import android.os.SystemProperties;
- import android.provider.Settings;
- import android.support.v4.app.NotificationCompat;
- import android.text.TextUtils;
-@@ -508,6 +509,8 @@ public class NotificationController {
-      * account settings screen where he can view the list of enforced policies
-      */
-     public void showSecurityChangedNotification(Account account) {
-+        if (SystemProperties.getBoolean("persist.exchange.nopolicy", false))
-+            return;
-         final Intent intent = new Intent(Intent.ACTION_VIEW,
-                 HeadlessAccountSettingsLoader.getIncomingSettingsUri(account.getId()));
-         final String accountName = account.getDisplayName();
-diff --git a/src/com/android/email/SecurityPolicy.java b/src/com/android/email/SecurityPolicy.java
-index 3adf8b8..86db687 100644
---- a/src/com/android/email/SecurityPolicy.java
-+++ b/src/com/android/email/SecurityPolicy.java
-@@ -31,6 +31,7 @@ import android.database.Cursor;
- import android.net.Uri;
- import android.os.Bundle;
- import android.os.RemoteException;
-+import android.os.SystemProperties;
- 
- import com.android.email.provider.AccountReconciler;
- import com.android.email.provider.EmailProvider;
-@@ -246,6 +247,8 @@ public class SecurityPolicy {
+@@ -525,4 +536,4 @@ public final class Policy extends EmailContent implements EmailContent.PolicyCol
+         mProtocolPoliciesEnforced = in.readString();
+         mProtocolPoliciesUnsupported = in.readString();
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/provider_src/com/android/email/SecurityPolicy.java b/provider_src/com/android/email/SecurityPolicy.java
+index 8418871..d15630d 100644
+--- a/provider_src/com/android/email/SecurityPolicy.java
++++ b/provider_src/com/android/email/SecurityPolicy.java
+@@ -247,6 +247,8 @@ public class SecurityPolicy {
       * @return true if the requested policies are active, false if not.
       */
      public boolean isActive(Policy policy) {
 +        if (SystemProperties.getBoolean("persist.exchange.nopolicy", false))
 +            return true;
          int reasons = getInactiveReasons(policy);
-         if (MailActivityEmail.DEBUG && (reasons != 0)) {
+         if (DebugUtils.DEBUG && (reasons != 0)) {
              StringBuilder sb = new StringBuilder("isActive for " + policy + ": ");
-@@ -316,6 +319,8 @@ public class SecurityPolicy {
+@@ -317,6 +319,8 @@ public class SecurityPolicy {
       * is needed (typically, by the user) before the required security polices are fully active.
       */
      public int getInactiveReasons(Policy policy) {
@@ -123,7 +86,7 @@ index 3adf8b8..86db687 100644
          // select aggregate set if needed
          if (policy == null) {
              policy = getAggregatePolicy();
-@@ -402,6 +407,8 @@ public class SecurityPolicy {
+@@ -403,6 +407,8 @@ public class SecurityPolicy {
       * we only proceed if we are already active as an admin.
       */
      public void setActivePolicies() {
@@ -132,7 +95,7 @@ index 3adf8b8..86db687 100644
          DevicePolicyManager dpm = getDPM();
          // compute aggregate set of policies
          Policy aggregatePolicy = getAggregatePolicy();
-@@ -664,6 +671,8 @@ public class SecurityPolicy {
+@@ -677,6 +683,8 @@ public class SecurityPolicy {
       * return to the caller if there is an unexpected failure.  The wipe includes external storage.
       */
      public void remoteWipe() {
@@ -141,7 +104,7 @@ index 3adf8b8..86db687 100644
          DevicePolicyManager dpm = getDPM();
          if (dpm.isAdminActive(mAdminName)) {
              dpm.wipeData(DevicePolicyManager.WIPE_EXTERNAL_STORAGE);
-@@ -681,6 +690,8 @@ public class SecurityPolicy {
+@@ -694,6 +702,8 @@ public class SecurityPolicy {
       * @return true if we are already active, false if we are not
       */
      public boolean isActiveAdmin() {
@@ -150,6 +113,27 @@ index 3adf8b8..86db687 100644
          DevicePolicyManager dpm = getDPM();
          return dpm.isAdminActive(mAdminName)
                  && dpm.hasGrantedPolicy(mAdminName, DeviceAdminInfo.USES_POLICY_EXPIRE_PASSWORD)
+diff --git a/src/com/android/email/EmailNotificationController.java b/src/com/android/email/EmailNotificationController.java
+index e57b418..6886e9a 100644
+--- a/src/com/android/email/EmailNotificationController.java
++++ b/src/com/android/email/EmailNotificationController.java
+@@ -31,6 +31,7 @@ import android.net.Uri;
+ import android.os.Handler;
+ import android.os.Looper;
+ import android.os.Process;
++import android.os.SystemProperties;
+ import android.provider.Settings;
+ import android.support.v4.app.NotificationCompat;
+ import android.text.TextUtils;
+@@ -515,6 +516,8 @@ public class EmailNotificationController implements NotificationController {
+      */
+     @Override
+     public void showSecurityChangedNotification(Account account) {
++        if (SystemProperties.getBoolean("persist.exchange.nopolicy", false))
++            return;
+         final Intent intent = new Intent(Intent.ACTION_VIEW,
+                 EmailProvider.getIncomingSettingsUri(account.getId()));
+         final String accountName = account.getDisplayName();
 -- 
-2.1.1
+2.3.3
 

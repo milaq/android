@@ -35,7 +35,7 @@ function check_clean {
 #
 
 # Email: Add support for ignoring exchange server policy (1/2)
-PATCH=14-12-06_Add-support-for-ignoring-exchange-server-policy-1-2
+PATCH=Add-support-for-ignoring-exchange-server-policy-1-2
 FOLDER=packages/apps/Email
 ###
 pushd ${FOLDER}
