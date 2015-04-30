@@ -44,7 +44,7 @@ git am ${PATCH}.patch
 check_clean
 
 # minimize softbutton spacing
-PATCH=14-12-08_minimize-softbutton-spacing
+PATCH=minimize-softbutton-spacing
 FOLDER=frameworks/base
 ###
 pushd ${FOLDER}
