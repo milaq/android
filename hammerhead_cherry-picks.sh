@@ -35,7 +35,7 @@ function check_clean {
 #
 
 # hammerhead xhdpi build
-PATCH=14-11-19_hammerhead-xhdpi-build
+PATCH=hammerhead-xhdpi-build
 FOLDER=device/lge/hammerhead
 ###
 pushd ${FOLDER}
