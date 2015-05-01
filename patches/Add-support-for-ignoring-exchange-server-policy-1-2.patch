@@ -1,4 +1,4 @@
-From c4869d19017d684bde516cfa5bd61f2806be7a44 Mon Sep 17 00:00:00 2001
+From 5940082208413ebe0db5edf1f76cedc1cc88aa77 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
 Date: Thu, 30 Apr 2015 17:07:30 +0200
 Subject: [PATCH] Add support for ignoring exchange server policy (1/2)
@@ -11,9 +11,9 @@ This also requires the app to be signed with platform keys.
 ---
  emailcommon/Android.mk                                      |  2 --
  .../src/com/android/emailcommon/provider/Policy.java        | 13 ++++++++++++-
- provider_src/com/android/email/SecurityPolicy.java          | 10 ++++++++++
+ provider_src/com/android/email/SecurityPolicy.java          | 11 +++++++++++
  src/com/android/email/EmailNotificationController.java      |  3 +++
- 4 files changed, 25 insertions(+), 3 deletions(-)
+ 4 files changed, 26 insertions(+), 3 deletions(-)
 
 diff --git a/emailcommon/Android.mk b/emailcommon/Android.mk
 index 14ea550..cafc362 100644
@@ -65,10 +65,18 @@ index f32b750..c91d8e0 100755
 \ No newline at end of file
 +}
 diff --git a/provider_src/com/android/email/SecurityPolicy.java b/provider_src/com/android/email/SecurityPolicy.java
-index 8418871..d15630d 100644
+index 8418871..60951c6 100644
 --- a/provider_src/com/android/email/SecurityPolicy.java
 +++ b/provider_src/com/android/email/SecurityPolicy.java
-@@ -247,6 +247,8 @@ public class SecurityPolicy {
+@@ -31,6 +31,7 @@ import android.database.Cursor;
+ import android.net.Uri;
+ import android.os.Bundle;
+ import android.os.RemoteException;
++import android.os.SystemProperties;
+ 
+ import com.android.email.NotificationController;
+ import com.android.email.NotificationControllerCreatorHolder;
+@@ -247,6 +248,8 @@ public class SecurityPolicy {
       * @return true if the requested policies are active, false if not.
       */
      public boolean isActive(Policy policy) {
@@ -77,7 +85,7 @@ index 8418871..d15630d 100644
          int reasons = getInactiveReasons(policy);
          if (DebugUtils.DEBUG && (reasons != 0)) {
              StringBuilder sb = new StringBuilder("isActive for " + policy + ": ");
-@@ -317,6 +319,8 @@ public class SecurityPolicy {
+@@ -317,6 +320,8 @@ public class SecurityPolicy {
       * is needed (typically, by the user) before the required security polices are fully active.
       */
      public int getInactiveReasons(Policy policy) {
@@ -86,7 +94,7 @@ index 8418871..d15630d 100644
          // select aggregate set if needed
          if (policy == null) {
              policy = getAggregatePolicy();
-@@ -403,6 +407,8 @@ public class SecurityPolicy {
+@@ -403,6 +408,8 @@ public class SecurityPolicy {
       * we only proceed if we are already active as an admin.
       */
      public void setActivePolicies() {
@@ -95,7 +103,7 @@ index 8418871..d15630d 100644
          DevicePolicyManager dpm = getDPM();
          // compute aggregate set of policies
          Policy aggregatePolicy = getAggregatePolicy();
-@@ -677,6 +683,8 @@ public class SecurityPolicy {
+@@ -677,6 +684,8 @@ public class SecurityPolicy {
       * return to the caller if there is an unexpected failure.  The wipe includes external storage.
       */
      public void remoteWipe() {
@@ -104,7 +112,7 @@ index 8418871..d15630d 100644
          DevicePolicyManager dpm = getDPM();
          if (dpm.isAdminActive(mAdminName)) {
              dpm.wipeData(DevicePolicyManager.WIPE_EXTERNAL_STORAGE);
-@@ -694,6 +702,8 @@ public class SecurityPolicy {
+@@ -694,6 +703,8 @@ public class SecurityPolicy {
       * @return true if we are already active, false if we are not
       */
      public boolean isActiveAdmin() {
@@ -135,5 +143,5 @@ index e57b418..6886e9a 100644
                  EmailProvider.getIncomingSettingsUri(account.getId()));
          final String accountName = account.getDisplayName();
 -- 
-2.3.3
+2.3.5
 
