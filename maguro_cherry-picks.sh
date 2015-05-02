@@ -51,3 +51,12 @@ pushd ${FOLDER}
 wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
+
+# dpi adjustment settings patch
+PATCH=dpi-preferably-allow-adjusting-to-higher-dpi
+FOLDER=packages/apps/Settings
+###
+pushd ${FOLDER}
+wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean

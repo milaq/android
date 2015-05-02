@@ -1,0 +1,33 @@
+From b25186c1abb7e237177a9dc9e31163ef9af129c4 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Sat, 2 May 2015 02:06:19 +0200
+Subject: [PATCH] dpi: preferably allow adjusting to higher dpi
+
+to be used in conjunction with lowered default dpi patches to allow
+jumping to the next highest (default) density without sacrificing regular defaults.
+
+this way, we can allow easy dpi switching for working around some dpi related issues (e.g.
+cardboard apps) and at the same time keep the sane defaults set by the
+dpi patches.
+---
+ src/com/android/settings/DisplaySettings.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/com/android/settings/DisplaySettings.java b/src/com/android/settings/DisplaySettings.java
+index b5fa3b1..f257257 100644
+--- a/src/com/android/settings/DisplaySettings.java
++++ b/src/com/android/settings/DisplaySettings.java
+@@ -178,8 +178,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
+                 currentDensity = defaultDensity;
+             }
+ 
+-            int factor = defaultDensity >= 480 ? 40 : 20;
+-            int minimumDensity = defaultDensity - 4 * factor;
++            int factor = defaultDensity >= 320 ? 40 : 20;
++            int minimumDensity = defaultDensity - 2 * factor;
+             int currentIndex = -1;
+             String[] densityEntries = new String[7];
+             String[] densityValues = new String[7];
+-- 
+2.3.7
+
