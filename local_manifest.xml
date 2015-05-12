@@ -42,6 +42,21 @@
       remote="github"
       revision="cm-11.0"/>
 
+    <project path="device/motorola/falcon"
+      name="CyanogenMod/android_device_motorola_falcon"
+      remote="github"
+      revision="cm-11.0"/>
+
+    <project path="device/motorola/msm8226-common"
+      name="CyanogenMod/android_device_motorola_msm8226-common"
+      remote="github"
+      revision="cm-11.0"/>
+
+    <project path="device/qcom/common"
+      name="CyanogenMod/android_device_qcom_common"
+      remote="github"
+      revision="cm-11.0"/>
+
     <project path="device/samsung/i9100"
       name="CyanogenMod/android_device_samsung_i9100"
       remote="github"
@@ -84,6 +99,11 @@
 
     <project path="kernel/lge/hammerhead"
       name="CyanogenMod/android_kernel_lge_hammerhead"
+      remote="github"
+      revision="cm-11.0"/>
+
+    <project path="kernel/motorola/msm8226"
+      name="CyanogenMod/android_kernel_motorola_msm8226"
       remote="github"
       revision="cm-11.0"/>
 
@@ -134,6 +154,11 @@
 
     <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
 
+    <project path="hardware/qcom/fm"
+      name="CyanogenMod/android_hardware_qcom_fm"
+      remote="github"
+      revision="cm-11.0"/>
+
     <project path="hardware/samsung"
       name="CyanogenMod/android_hardware_samsung"
       remote="github"
@@ -173,6 +198,14 @@
       name="Evervolv/android_hardware_qcom_audio-legacy"
       remote="github"
       revision="kitkat"/>
+
+    <project path="hardware/qcom/display-caf-new"
+      name="CyanogenMod/android_hardware_qcom_display-caf-new"
+      revision="cm-11.0" />
+
+    <project path="hardware/qcom/media-caf-new"
+      name="CyanogenMod/android_hardware_qcom_media-caf-new"
+      revision="cm-11.0" />
 
     <project path="vendor/mlq"
       name="milaq/android_vendor_mlq"
