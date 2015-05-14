@@ -44,7 +44,7 @@ git am ${PATCH}.patch
 check_clean
 
 # btservice/AdaperState: handle ENABLED_READY in OffState
-PATCH=13-11-25_btservice-AdaperState-handle-ENABLED_READY
+PATCH=btservice-AdaperState-handle-ENABLED_READY-in-OffSta
 FOLDER=packages/apps/Bluetooth
 ###
 pushd ${FOLDER}
