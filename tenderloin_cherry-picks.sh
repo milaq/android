@@ -52,13 +52,6 @@ wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
-# invensense: allow other devices to build a specific sensor
-FOLDER=hardware/invensense
-###
-pushd ${FOLDER}
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_hardware_invensense refs/changes/23/82223/1 && git cherry-pick FETCH_HEAD
-check_clean
-
 # sepolicy: add a domain for lvm
 FOLDER=external/sepolicy
 ###
