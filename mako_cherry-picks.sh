@@ -60,3 +60,13 @@ pushd ${FOLDER}
 wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
+
+
+# kernel: wiimote support
+PATCH=kernel_google_msm-fix-up-and-enable-wiimote-support
+FOLDER=kernel/google/msm
+###
+pushd ${FOLDER}
+wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
