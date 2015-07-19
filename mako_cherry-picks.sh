@@ -35,38 +35,29 @@ function check_clean {
 #
 
 # mako hdpi build
-PATCH=14-11-19_mako-hdpi-build
+PATCH=mako-hdpi-build
 FOLDER=device/lge/mako
 ###
 pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
+wget https://raw.githubusercontent.com/milaq/android/aospa-lollipop-mr1/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
+
+# adjust notification led blink rate to sanity
+PATCH=mako-adjust-notification-led-blink-rate-to-sanity
+FOLDER=device/lge/mako
+###
+pushd ${FOLDER}
+wget https://raw.githubusercontent.com/milaq/android/aospa-lollipop-mr1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
 # minimize softbutton spacing
-PATCH=minimize-softbutton-spacing
-FOLDER=frameworks/base
+#PATCH=minimize-softbutton-spacing
+#FOLDER=frameworks/base
 ###
-pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+#pushd ${FOLDER}
+#wget https://raw.githubusercontent.com/milaq/android/aospa-lollipop-mr1/patches/${PATCH}.patch
+#git am ${PATCH}.patch
+#check_clean
 
-# dpi adjustment settings patch
-PATCH=dpi-preferably-allow-adjusting-to-higher-dpi
-FOLDER=packages/apps/Settings
-###
-pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
-
-
-# kernel: wiimote support
-PATCH=kernel_google_msm-fix-up-and-enable-wiimote-support
-FOLDER=kernel/google/msm
-###
-pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean

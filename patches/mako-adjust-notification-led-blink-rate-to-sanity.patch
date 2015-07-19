@@ -1,0 +1,25 @@
+From 513af361c36d5e863426566ceee7076a74eb8450 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Sun, 19 Jul 2015 13:47:20 +0200
+Subject: [PATCH] mako: adjust notification led blink rate to sanity
+
+---
+ overlay/frameworks/base/core/res/res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
+index e030717..3fd0075 100644
+--- a/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -29,7 +29,7 @@
+     <integer name="config_defaultNotificationLedOn">1000</integer>
+ 
+     <!-- Default LED off time for notification LED in milliseconds. -->
+-    <integer name="config_defaultNotificationLedOff">9000</integer>
++    <integer name="config_defaultNotificationLedOff">1000</integer>
+ 
+     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+          autodetected from the Configuration. -->
+-- 
+2.4.6
+

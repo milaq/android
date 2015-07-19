@@ -1,11 +1,12 @@
-From 5940082208413ebe0db5edf1f76cedc1cc88aa77 Mon Sep 17 00:00:00 2001
+From 35f2e10bc15bea6bb7251859106c38c261e45ae6 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Thu, 30 Apr 2015 17:07:30 +0200
+Date: Sun, 19 Jul 2015 14:01:02 +0200
 Subject: [PATCH] Add support for ignoring exchange server policy (1/2)
 
-Some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.). So make it possible to ignore any policies pushed by the exchange server.
+Some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.).
+So make it possible to ignore any policies pushed by the exchange server.
 
-based on the "ExchangeBypassXposed" module by Shantanu Goel.
+Based on the "ExchangeBypassXposed" module by Shantanu Goel.
 
 This also requires the app to be signed with platform keys.
 ---
@@ -16,14 +17,14 @@ This also requires the app to be signed with platform keys.
  4 files changed, 26 insertions(+), 3 deletions(-)
 
 diff --git a/emailcommon/Android.mk b/emailcommon/Android.mk
-index 14ea550..cafc362 100644
+index 654e20d..cafc362 100644
 --- a/emailcommon/Android.mk
 +++ b/emailcommon/Android.mk
 @@ -42,8 +42,6 @@ LOCAL_SRC_FILES += $(call all-java-files-under, $(apache_src_dir))
  LOCAL_SRC_FILES += $(imported_unified_email_files)
  LOCAL_SRC_FILES += $(call all-java-files-under, $(unified_email_src_dir)/com/android/emailcommon)
  
--LOCAL_SDK_VERSION := 17
+-LOCAL_SDK_VERSION := 14
 -
  LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
  
@@ -143,5 +144,5 @@ index e57b418..6886e9a 100644
                  EmailProvider.getIncomingSettingsUri(account.getId()));
          final String accountName = account.getDisplayName();
 -- 
-2.3.5
+2.4.6
 

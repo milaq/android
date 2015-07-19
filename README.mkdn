@@ -1,11 +1,11 @@
-Cyanogenmod 12
+Paranoid Android (AOSPA)
 ================================
 manifests + cherry-picks (milaq)
 ================================
 
-Android 5.0 Lollipop
+Android 5.1 Lollipop
 
-use 'CyanogenMod/android.git' to init the repos.
+use 'aospa/manifest.git' to init the repos.
 pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync
 
 (cherry pick when needed)

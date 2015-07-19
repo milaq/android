@@ -1,11 +1,12 @@
-From 81a1b7c08da1c4e0dbe5a7fc59a5fae4ce361959 Mon Sep 17 00:00:00 2001
+From df8a3a2651181fe330c3683c1b60aef6adf32e9c Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Thu, 30 Apr 2015 17:31:19 +0200
+Date: Sun, 19 Jul 2015 14:03:45 +0200
 Subject: [PATCH] Add support for ignoring exchange server policy (2/2)
 
-Some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.). So make it possible to ignore any policies pushed by the exchange server.
+Some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.).
+So make it possible to ignore any policies pushed by the exchange server.
 
-based on the "ExchangeBypassXposed" module by Shantanu Goel.
+Based on the "ExchangeBypassXposed" module by Shantanu Goel.
 
 This also requires the app to be signed with platform keys.
 ---
@@ -47,5 +48,5 @@ index 4888b8d..14cf775 100644
      }
  
 -- 
-2.3.3
+2.4.6
 

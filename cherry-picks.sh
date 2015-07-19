@@ -39,16 +39,7 @@ PATCH=Add-support-for-ignoring-exchange-server-policy-1-2
 FOLDER=packages/apps/Email
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
-
-# recovery: non-touch hacks
-PATCH=14-12-21_recovery-non-touch-hacks
-FOLDER=bootable/recovery
-###
-pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/aospa-lollipop-mr1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
@@ -57,7 +48,7 @@ PATCH=Add-support-for-ignoring-exchange-server-policy-2-2
 FOLDER=packages/apps/Exchange
 ###
 pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
+wget https://raw.github.com/milaq/android/aospa-lollipop-mr1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
