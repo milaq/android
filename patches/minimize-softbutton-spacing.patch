@@ -1,0 +1,77 @@
+From 1377a051f8e9dd005c7c0ae3c4220c35c669ad9b Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Mon, 20 Jul 2015 02:29:39 +0200
+Subject: [PATCH] minimize softbutton spacing
+
+---
+ packages/SystemUI/res/values-sw360dp/dimens.xml | 4 ++--
+ packages/SystemUI/res/values-sw400dp/dimens.xml | 2 +-
+ packages/SystemUI/res/values-sw600dp/dimens.xml | 2 +-
+ packages/SystemUI/res/values/dimens.xml         | 4 ++--
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/packages/SystemUI/res/values-sw360dp/dimens.xml b/packages/SystemUI/res/values-sw360dp/dimens.xml
+index dfd9743..5aa357d 100644
+--- a/packages/SystemUI/res/values-sw360dp/dimens.xml
++++ b/packages/SystemUI/res/values-sw360dp/dimens.xml
+@@ -20,11 +20,11 @@
+     <dimen name="navigation_key_width">80dip</dimen>
+ 
+     <!-- The width of the view containing the menu/ime navigation bar icons -->
+-    <dimen name="navigation_extra_key_width">40dip</dimen>
++    <dimen name="navigation_extra_key_width">80dip</dimen>
+ 
+     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
+          navigation_extra_key_width -->
+-    <dimen name="navigation_side_padding">40dip</dimen>
++    <dimen name="navigation_side_padding">80dip</dimen>
+ 
+ </resources>
+ 
+diff --git a/packages/SystemUI/res/values-sw400dp/dimens.xml b/packages/SystemUI/res/values-sw400dp/dimens.xml
+index f19335b..a51ef4e 100644
+--- a/packages/SystemUI/res/values-sw400dp/dimens.xml
++++ b/packages/SystemUI/res/values-sw400dp/dimens.xml
+@@ -21,7 +21,7 @@
+ 
+     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
+          navigation_extra_key_width -->
+-    <dimen name="navigation_side_padding">50dp</dimen>
++    <dimen name="navigation_side_padding">100dp</dimen>
+ 
+     <!-- Screen pinning request padding on side of icons
+          (makes the width match the nav bar)-->
+diff --git a/packages/SystemUI/res/values-sw600dp/dimens.xml b/packages/SystemUI/res/values-sw600dp/dimens.xml
+index 195fdb1..4730a47 100644
+--- a/packages/SystemUI/res/values-sw600dp/dimens.xml
++++ b/packages/SystemUI/res/values-sw600dp/dimens.xml
+@@ -30,7 +30,7 @@
+     <dimen name="navbar_search_panel_height">280dip</dimen>
+ 
+     <!-- The width of the view containing the menu/ime navigation bar icons -->
+-    <dimen name="navigation_extra_key_width">48dip</dimen>
++    <dimen name="navigation_extra_key_width">96dip</dimen>
+ 
+     <!-- Size of application thumbnail -->
+     <dimen name="status_bar_recents_thumbnail_width">200dp</dimen>
+diff --git a/packages/SystemUI/res/values/dimens.xml b/packages/SystemUI/res/values/dimens.xml
+index 44330e8..2bc1ae2 100644
+--- a/packages/SystemUI/res/values/dimens.xml
++++ b/packages/SystemUI/res/values/dimens.xml
+@@ -109,11 +109,11 @@
+     <dimen name="navigation_key_width">70dp</dimen>
+ 
+     <!-- The width of the view containing the menu/ime navigation bar icons -->
+-    <dimen name="navigation_extra_key_width">36dp</dimen>
++    <dimen name="navigation_extra_key_width">72dp</dimen>
+ 
+     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
+          navigation_extra_key_width -->
+-    <dimen name="navigation_side_padding">36dp</dimen>
++    <dimen name="navigation_side_padding">72dp</dimen>
+ 
+     <!-- Default distance beyond which snaps to the matching target -->
+     <dimen name="navbar_search_snap_margin">40dip</dimen>
+-- 
+2.4.6
+
