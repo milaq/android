@@ -19,12 +19,12 @@ index dfd9743..5aa357d 100644
  
      <!-- The width of the view containing the menu/ime navigation bar icons -->
 -    <dimen name="navigation_extra_key_width">40dip</dimen>
-+    <dimen name="navigation_extra_key_width">80dip</dimen>
++    <dimen name="navigation_extra_key_width">72dip</dimen>
  
      <!-- The padding on the side of the navigation bar. Must be greater than or equal to
           navigation_extra_key_width -->
 -    <dimen name="navigation_side_padding">40dip</dimen>
-+    <dimen name="navigation_side_padding">80dip</dimen>
++    <dimen name="navigation_side_padding">72dip</dimen>
  
  </resources>
  
@@ -37,7 +37,7 @@ index f19335b..a51ef4e 100644
      <!-- The padding on the side of the navigation bar. Must be greater than or equal to
           navigation_extra_key_width -->
 -    <dimen name="navigation_side_padding">50dp</dimen>
-+    <dimen name="navigation_side_padding">100dp</dimen>
++    <dimen name="navigation_side_padding">90dp</dimen>
  
      <!-- Screen pinning request padding on side of icons
           (makes the width match the nav bar)-->
@@ -50,7 +50,7 @@ index 195fdb1..4730a47 100644
  
      <!-- The width of the view containing the menu/ime navigation bar icons -->
 -    <dimen name="navigation_extra_key_width">48dip</dimen>
-+    <dimen name="navigation_extra_key_width">96dip</dimen>
++    <dimen name="navigation_extra_key_width">84dip</dimen>
  
      <!-- Size of application thumbnail -->
      <dimen name="status_bar_recents_thumbnail_width">200dp</dimen>
@@ -63,12 +63,12 @@ index 44330e8..2bc1ae2 100644
  
      <!-- The width of the view containing the menu/ime navigation bar icons -->
 -    <dimen name="navigation_extra_key_width">36dp</dimen>
-+    <dimen name="navigation_extra_key_width">72dp</dimen>
++    <dimen name="navigation_extra_key_width">64dp</dimen>
  
      <!-- The padding on the side of the navigation bar. Must be greater than or equal to
           navigation_extra_key_width -->
 -    <dimen name="navigation_side_padding">36dp</dimen>
-+    <dimen name="navigation_side_padding">72dp</dimen>
++    <dimen name="navigation_side_padding">64dp</dimen>
  
      <!-- Default distance beyond which snaps to the matching target -->
      <dimen name="navbar_search_snap_margin">40dip</dimen>
