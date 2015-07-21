@@ -52,6 +52,16 @@ wget https://raw.githubusercontent.com/milaq/android/aospa-lollipop-mr1/patches/
 git am ${PATCH}.patch
 check_clean
 
+
+# msm8960: include battery lights
+PATCH=msm8960-include-battery-lights
+FOLDER=hardware/qcom/display
+###
+pushd ${FOLDER}
+wget https://raw.githubusercontent.com/milaq/android/aospa-lollipop-mr1/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
+
 # minimize softbutton spacing
 PATCH=minimize-softbutton-spacing
 FOLDER=frameworks/base

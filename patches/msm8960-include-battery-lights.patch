@@ -1,0 +1,43 @@
+From 3f543d36a3c8a55f33869922533a30c7dd926b99 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Tue, 21 Jul 2015 14:51:01 +0200
+Subject: [PATCH] msm8960: include battery lights
+
+---
+ msm8960/liblight/lights.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/msm8960/liblight/lights.c b/msm8960/liblight/lights.c
+index 332a2ec..3fc5d5b 100644
+--- a/msm8960/liblight/lights.c
++++ b/msm8960/liblight/lights.c
+@@ -262,6 +262,17 @@ set_light_attention(struct light_device_t* dev,
+     return 0;
+ }
+ 
++static int
++set_light_battery(struct light_device_t* dev,
++        struct light_state_t const* state)
++{
++    pthread_mutex_lock(&g_lock);
++    g_battery = *state;
++    handle_speaker_battery_locked(dev);
++    pthread_mutex_unlock(&g_lock);
++    return 0;
++}
++
+ 
+ /** Close the lights device */
+ static int
+@@ -293,6 +304,8 @@ static int open_lights(const struct hw_module_t* module, char const* name,
+         set_light = set_light_notifications;
+     else if (0 == strcmp(LIGHT_ID_ATTENTION, name))
+         set_light = set_light_attention;
++    else if (0 == strcmp(LIGHT_ID_BATTERY, name))
++        set_light = set_light_battery;
+     else
+         return -EINVAL;
+ 
+-- 
+2.4.5
+
