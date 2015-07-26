@@ -1,0 +1,32 @@
+From 54f3b1372803a3b6885a49cc2371fc05caa70969 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Sun, 26 Jul 2015 14:45:46 +0200
+Subject: [PATCH] adb: enable secure adb
+
+---
+ configs/aosp_fixes.mk | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/configs/aosp_fixes.mk b/configs/aosp_fixes.mk
+index dcc371e..f2ea808 100644
+--- a/configs/aosp_fixes.mk
++++ b/configs/aosp_fixes.mk
+@@ -28,10 +28,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.config.notification_sound=Tethys.ogg \
+     ro.config.alarm_alert=Osmium.ogg
+ 
++# Enable ADB authentication
++ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
++
+ # Enable SIP+VoIP
+ PRODUCT_COPY_FILES += \
+     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+ 
+ # Proprietary latinime lib needed for Keyboard swyping
+ PRODUCT_COPY_FILES += \
+-    vendor/pa/prebuilt/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+\ No newline at end of file
++    vendor/pa/prebuilt/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+-- 
+2.4.6
+

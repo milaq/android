@@ -52,3 +52,12 @@ wget https://raw.github.com/milaq/android/aospa-lollipop-mr1/patches/${PATCH}.pa
 git am ${PATCH}.patch
 check_clean
 
+# adb: enable secure adb
+PATCH=enable-secure-adb.patch
+FOLDER=vendor/pa
+###
+pushd ${FOLDER}
+wget https://raw.github.com/milaq/android/aospa-lollipop-mr1/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
+
