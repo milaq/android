@@ -52,15 +52,6 @@ wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
-# recovery: insecure adb
-PATCH=recovery-insecure-adb
-FOLDER=bootable/recovery
-###
-pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
-
 # Exchange: Add support for ignoring exchange server policy (2/2)
 PATCH=Add-support-for-ignoring-exchange-server-policy-2-2
 FOLDER=packages/apps/Exchange
