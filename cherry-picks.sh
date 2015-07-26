@@ -53,7 +53,7 @@ git am ${PATCH}.patch
 check_clean
 
 # adb: enable secure adb
-PATCH=enable-secure-adb.patch
+PATCH=enable-secure-adb
 FOLDER=vendor/pa
 ###
 pushd ${FOLDER}
