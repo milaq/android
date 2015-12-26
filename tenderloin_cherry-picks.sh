@@ -30,45 +30,21 @@ function check_clean {
   popd
 }
 
+function apply {
+  pushd $2
+  wget https://raw.githubusercontent.com/milaq/android/$BRANCH/patches/$1.patch
+  git am $1.patch
+  check_clean
+}
+
 #
 # insert cherry-picks below
 #
+BRANCH=stable/cm-12.1-YOG4P
 
 # wifi.c: allow devices to specify driver delay
-PATCH=15-01-13_wifi.c-allow-devices-to-specify-driver-delay
-FOLDER=hardware/libhardware_legacy
-###
-pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+apply 15-01-13_wifi.c-allow-devices-to-specify-driver-delay hardware/libhardware_legacy
 
 # btservice/AdaperState: handle ENABLED_READY in OffState
-PATCH=btservice-AdaperState-handle-ENABLED_READY-in-OffSta
-FOLDER=packages/apps/Bluetooth
-###
-pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+apply PATCH=btservice-AdaperState-handle-ENABLED_READY-in-OffSta packages/apps/Bluetooth
 
-# sepolicy: add a domain for lvm
-FOLDER=external/sepolicy
-###
-pushd ${FOLDER}
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_external_sepolicy refs/changes/60/82660/2 && git cherry-pick FETCH_HEAD
-check_clean
-
-# art: allow devices to opt out of GAP check
-FOLDER=art
-###
-pushd ${FOLDER}
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_art refs/changes/61/82661/1 && git cherry-pick FETCH_HEAD
-check_clean
-
-# libart: Allow adjustment of the base address
-FOLDER=build
-###
-pushd ${FOLDER}
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_build refs/changes/68/82668/3 && git cherry-pick FETCH_HEAD
-check_clean

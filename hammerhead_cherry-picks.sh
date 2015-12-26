@@ -30,33 +30,24 @@ function check_clean {
   popd
 }
 
+function apply {
+  pushd $2
+  wget https://raw.githubusercontent.com/milaq/android/$BRANCH/patches/$1.patch
+  git am $1.patch
+  check_clean
+}
+
 #
 # insert cherry-picks below
 #
+BRANCH=stable/cm-12.1-YOG4P
 
 # hammerhead xhdpi build
-PATCH=hammerhead-xhdpi-build
-FOLDER=device/lge/hammerhead
-###
-pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+apply hammerhead-xhdpi-build device/lge/hammerhead
 
 # minimize softbutton spacing
-PATCH=minimize-softbutton-spacing
-FOLDER=frameworks/base
-###
-pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+apply minimize-softbutton-spacing frameworks/base
 
 # dpi adjustment settings patch
-PATCH=dpi-preferably-allow-adjusting-to-higher-dpi
-FOLDER=packages/apps/Settings
-###
-pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+apply dpi-preferably-allow-adjusting-to-higher-dpi packages/apps/Settings
+

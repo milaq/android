@@ -30,34 +30,24 @@ function check_clean {
   popd
 }
 
+function apply {
+  pushd $2
+  wget https://raw.githubusercontent.com/milaq/android/$BRANCH/patches/$1.patch
+  git am $1.patch
+  check_clean
+}
+
 #
 # insert cherry-picks below
 #
+BRANCH=stable/cm-12.1-YOG4P
 
 # Email: Add support for ignoring exchange server policy (1/2)
-PATCH=Add-support-for-ignoring-exchange-server-policy-1-2
-FOLDER=packages/apps/Email
-###
-pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
-
-# recovery: non-touch hacks
-PATCH=14-12-21_recovery-non-touch-hacks
-FOLDER=bootable/recovery
-###
-pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+apply Add-support-for-ignoring-exchange-server-policy-1-2 packages/apps/Email
 
 # Exchange: Add support for ignoring exchange server policy (2/2)
-PATCH=Add-support-for-ignoring-exchange-server-policy-2-2
-FOLDER=packages/apps/Exchange
-###
-pushd ${FOLDER}
-wget https://raw.github.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+apply Add-support-for-ignoring-exchange-server-policy-2-2 packages/apps/Exchange
+
+# recovery: non-touch hacks
+apply 14-12-21_recovery-non-touch-hacks bootable/recovery
 

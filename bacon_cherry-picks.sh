@@ -30,24 +30,24 @@ function check_clean {
   popd
 }
 
+function apply {
+  pushd $2
+  wget https://raw.githubusercontent.com/milaq/android/$BRANCH/patches/$1.patch
+  git am $1.patch
+  check_clean
+}
+
 #
 # insert cherry-picks below
 #
+BRANCH=stable/cm-12.1-YOG4P
 
-# bacon  hdpi build
-PATCH=15-03-06_bacon-xhdpi-build
-FOLDER=device/oneplus/bacon
-###
-pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+# bacon xhdpi build
+apply 15-03-06_bacon-xhdpi-build device/oneplus/bacon
 
 # minimize softbutton spacing
-PATCH=minimize-softbutton-spacing
-FOLDER=frameworks/base
-###
-pushd ${FOLDER}
-wget https://raw.githubusercontent.com/milaq/android/cm-12.1/patches/${PATCH}.patch
-git am ${PATCH}.patch
-check_clean
+apply minimize-softbutton-spacing frameworks/base
+
+# dpi adjustment settings patch
+apply dpi-preferably-allow-adjusting-to-higher-dpi packages/apps/Settings
+
