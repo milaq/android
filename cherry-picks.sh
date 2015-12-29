@@ -51,3 +51,6 @@ apply Add-support-for-ignoring-exchange-server-policy-2-2 packages/apps/Exchange
 # recovery: non-touch hacks
 apply 14-12-21_recovery-non-touch-hacks bootable/recovery
 
+# modversion: add MLQ infix to indicate changes
+apply modversion-add-MLQ-infix-to-indicate-changes vendor/cm
+
