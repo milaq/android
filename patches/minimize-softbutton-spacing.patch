@@ -1,19 +1,15 @@
-From f73b8d57496c4829b2051c819b40da0c6b51a115 Mon Sep 17 00:00:00 2001
+From 43fd0bf1903cc1eaa122ec846ffd732a82e4d1df Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Thu, 30 Apr 2015 17:45:38 +0200
+Date: Sat, 12 Mar 2016 18:05:36 +0100
 Subject: [PATCH] minimize softbutton spacing
 
 ---
- packages/SystemUI/res/layout/mid_navigation_bar_land.xml | 8 ++++----
- packages/SystemUI/res/layout/mid_navigation_bar_port.xml | 4 ++--
- packages/SystemUI/res/layout/navigation_bar.xml          | 8 ++++----
- packages/SystemUI/res/values-sw360dp/dimens.xml          | 4 ++--
- packages/SystemUI/res/values-sw400dp/dimens.xml          | 2 +-
- packages/SystemUI/res/values/dimens.xml                  | 4 ++--
- 6 files changed, 15 insertions(+), 15 deletions(-)
+ packages/SystemUI/res/layout/mid_navigation_bar_land.xml | 10 ++++++----
+ packages/SystemUI/res/layout/mid_navigation_bar_port.xml | 10 ++++++----
+ 2 files changed, 12 insertions(+), 8 deletions(-)
 
 diff --git a/packages/SystemUI/res/layout/mid_navigation_bar_land.xml b/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
-index 124e768..432f1a6 100644
+index 124e768..21a654d 100644
 --- a/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
 +++ b/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
 @@ -40,14 +40,14 @@
@@ -21,7 +17,7 @@ index 124e768..432f1a6 100644
              android:id="@+id/one"
              android:scaleType="centerInside"
 -            android:layout_height="40dp"
-+            android:layout_height="80dp"
++            android:layout_height="@dimen/navigation_key_width"
              android:layout_width="match_parent"
              android:layout_weight="0" />
          <com.android.systemui.statusbar.policy.KeyButtonView
@@ -29,16 +25,25 @@ index 124e768..432f1a6 100644
              android:visibility="gone"
              android:layout_width="match_parent"
 -            android:layout_height="40dp"
-+            android:layout_height="80dp"
++            android:layout_height="@dimen/navigation_key_width"
              android:layout_weight="0"
              android:scaleType="centerInside"
              systemui:keyRepeat="true"/>
-@@ -114,14 +114,14 @@
+@@ -56,6 +56,8 @@
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:layout_weight="1"
++        android:layout_marginTop="10dp"
++        android:layout_marginBottom="10dp"
+         android:orientation="vertical"
+         android:clipChildren="false"
+         android:gravity="center_vertical"
+@@ -114,14 +116,14 @@
              android:id="@+id/dpad_right"
              android:visibility="gone"
              android:layout_width="match_parent"
 -            android:layout_height="40dp"
-+            android:layout_height="80dp"
++            android:layout_height="@dimen/navigation_key_width"
              android:layout_weight="0"
              android:scaleType="centerInside"
              systemui:keyRepeat="true" />
@@ -46,107 +51,57 @@ index 124e768..432f1a6 100644
              android:id="@+id/six"
              android:scaleType="centerInside"
 -            android:layout_height="40dp"
-+            android:layout_height="80dp"
++            android:layout_height="@dimen/navigation_key_width"
              android:layout_width="match_parent"
              android:layout_weight="0"
              systemui:keyRepeat="true" />
 diff --git a/packages/SystemUI/res/layout/mid_navigation_bar_port.xml b/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
-index 3a617b1..4e6922c 100644
+index 3a617b1..dd528a8 100644
 --- a/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
 +++ b/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
-@@ -32,7 +32,7 @@
+@@ -32,14 +32,14 @@
          <com.android.systemui.statusbar.policy.KeyButtonView
              android:id="@+id/dpad_left"
              android:visibility="gone"
 -            android:layout_width="40dp"
-+            android:layout_width="80dp"
++            android:layout_width="@dimen/navigation_key_width"
              android:layout_height="match_parent"
              android:layout_weight="0"
              android:scaleType="centerInside"
-@@ -117,7 +117,7 @@
+             systemui:keyRepeat="true" />
+         <com.android.systemui.statusbar.policy.KeyButtonView
+             android:id="@+id/one"
+-            android:layout_width="@dimen/navigation_extra_key_width"
++            android:layout_width="@dimen/navigation_key_width"
+             android:layout_height="match_parent"
+             android:layout_weight="0"
+             android:scaleType="centerInside" />
+@@ -48,6 +48,8 @@
+         android:layout_height="match_parent"
+         android:layout_width="0dp"
+         android:layout_weight="1"
++        android:layout_marginStart="10dp"
++        android:layout_marginEnd="10dp"
+         android:clipChildren="false"
+         android:clipToPadding="false"
+         android:id="@+id/mid_nav_buttons"
+@@ -110,14 +112,14 @@
+                 android:visibility="invisible" />
+         <com.android.systemui.statusbar.policy.KeyButtonView
+             android:id="@+id/six"
+-            android:layout_width="@dimen/navigation_extra_key_width"
++            android:layout_width="@dimen/navigation_key_width"
+             android:layout_height="match_parent"
+             android:layout_weight="0"
+             android:scaleType="centerInside" />
          <com.android.systemui.statusbar.policy.KeyButtonView
              android:id="@+id/dpad_right"
              android:visibility="gone"
 -            android:layout_width="40dp"
-+            android:layout_width="80dp"
++            android:layout_width="@dimen/navigation_key_width"
              android:layout_height="match_parent"
              android:layout_weight="0"
              android:scaleType="centerInside"
-diff --git a/packages/SystemUI/res/layout/navigation_bar.xml b/packages/SystemUI/res/layout/navigation_bar.xml
-index 104a172..782438a 100644
---- a/packages/SystemUI/res/layout/navigation_bar.xml
-+++ b/packages/SystemUI/res/layout/navigation_bar.xml
-@@ -50,8 +50,8 @@
-             android:layout_width="match_parent"
-             android:orientation="horizontal"
-             android:gravity="center_horizontal"
--            android:layout_marginStart="40dp"
--            android:layout_marginEnd="40dp"
-+            android:layout_marginStart="80dp"
-+            android:layout_marginEnd="80dp"
-             android:layout_gravity="center_horizontal"
-             android:id="@+id/lights_out"
-             android:visibility="gone"
-@@ -144,8 +144,8 @@
-             android:orientation="vertical"
-             android:gravity="center_vertical"
-             android:layout_gravity="center_vertical"
--            android:layout_marginTop="40dp"
--            android:layout_marginBottom="40dp"
-+            android:layout_marginTop="80dp"
-+            android:layout_marginBottom="80dp"
-             android:id="@+id/lights_out"
-             android:visibility="gone"
-             >
-diff --git a/packages/SystemUI/res/values-sw360dp/dimens.xml b/packages/SystemUI/res/values-sw360dp/dimens.xml
-index dfd9743..5aa357d 100644
---- a/packages/SystemUI/res/values-sw360dp/dimens.xml
-+++ b/packages/SystemUI/res/values-sw360dp/dimens.xml
-@@ -20,11 +20,11 @@
-     <dimen name="navigation_key_width">80dip</dimen>
- 
-     <!-- The width of the view containing the menu/ime navigation bar icons -->
--    <dimen name="navigation_extra_key_width">40dip</dimen>
-+    <dimen name="navigation_extra_key_width">80dip</dimen>
- 
-     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
-          navigation_extra_key_width -->
--    <dimen name="navigation_side_padding">40dip</dimen>
-+    <dimen name="navigation_side_padding">80dip</dimen>
- 
- </resources>
- 
-diff --git a/packages/SystemUI/res/values-sw400dp/dimens.xml b/packages/SystemUI/res/values-sw400dp/dimens.xml
-index f19335b..a51ef4e 100644
---- a/packages/SystemUI/res/values-sw400dp/dimens.xml
-+++ b/packages/SystemUI/res/values-sw400dp/dimens.xml
-@@ -21,7 +21,7 @@
- 
-     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
-          navigation_extra_key_width -->
--    <dimen name="navigation_side_padding">50dp</dimen>
-+    <dimen name="navigation_side_padding">100dp</dimen>
- 
-     <!-- Screen pinning request padding on side of icons
-          (makes the width match the nav bar)-->
-diff --git a/packages/SystemUI/res/values/dimens.xml b/packages/SystemUI/res/values/dimens.xml
-index 44330e8..2bc1ae2 100644
---- a/packages/SystemUI/res/values/dimens.xml
-+++ b/packages/SystemUI/res/values/dimens.xml
-@@ -109,11 +109,11 @@
-     <dimen name="navigation_key_width">70dp</dimen>
- 
-     <!-- The width of the view containing the menu/ime navigation bar icons -->
--    <dimen name="navigation_extra_key_width">36dp</dimen>
-+    <dimen name="navigation_extra_key_width">72dp</dimen>
- 
-     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
-          navigation_extra_key_width -->
--    <dimen name="navigation_side_padding">36dp</dimen>
-+    <dimen name="navigation_side_padding">72dp</dimen>
- 
-     <!-- Default distance beyond which snaps to the matching target -->
-     <dimen name="navbar_search_snap_margin">40dip</dimen>
 -- 
-2.3.7
+2.7.2
 
