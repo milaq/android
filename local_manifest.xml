@@ -30,6 +30,8 @@
       name="milaq/android_vendor_lenovo_a107"
       remote="github"
       revision="gingerbread"/>
+      
+    <remove-project name="CyanogenMod/android_hardware_ti_wpan"/>
 
     <project path="external/libnl"
       name="milaq/android_external_libnl"
