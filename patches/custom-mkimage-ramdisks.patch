@@ -1,0 +1,80 @@
+From c7cb10b772b205a9ff91c437d4d5ce2f1134e7f6 Mon Sep 17 00:00:00 2001
+From: gmarkall <grm08@doc.ic.ac.uk>
+Date: Thu, 19 Jan 2012 19:56:45 +0000
+Subject: [PATCH] Add option to configure ramdisks built with mkimage for
+ U-Boot.
+
+The Lenovo Ideapad A1 has a utility to flash the ramdisk partitions (called
+fuse) that is used to write both the ramdisk for the normal system and the
+ramdisk for recovery. However, before it flashes a ramdisk, it checks the U-Boot
+header of the image to ensure that the image meets it's expectations.
+
+These parameters are the image name, compression type, load address, and entry
+address. The values that are currently assumed (Image, gzip, 0x0 and 0x0
+respectively) do not satisfy the fuse tool.
+
+This patch adds the option to specify each of these parameters, or fall back to
+the defaults if they are not specified. For an example of the use of these
+parameters, see BoardConfig.mk in
+https://github.com/gmarkall/android_device_ideapad_a1
+---
+ core/Makefile | 39 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 37 insertions(+), 2 deletions(-)
+
+diff --git a/core/Makefile b/core/Makefile
+index b7f92ee..de95ab6 100644
+--- a/core/Makefile
++++ b/core/Makefile
+@@ -346,7 +346,24 @@ BUILT_RAMDISK_TARGET := $(PRODUCT_OUT)/ramdisk.img
+ 
+ ifeq ($(BOARD_USES_UBOOT),true)
+ # BOARD_USES_UBOOT
+-INTERNAL_URAMDISKIMAGE_ARGS := -A ARM -O Linux -T RAMDisk -C gzip -n Image -d $(BUILT_RAMDISK_TARGET).cpio.gz
++
++ifndef BOARD_URAMDISK_NAME
++  BOARD_URAMDISK_NAME := Image
++endif
++
++ifndef BOARD_URAMDISK_COMPRESSION
++  BOARD_URAMDISK_COMPRESSION := gzip
++endif
++
++INTERNAL_URAMDISKIMAGE_ARGS := -A ARM -O Linux -T RAMDisk -C $(BOARD_URAMDISK_COMPRESSION) -n $(BOARD_URAMDISK_NAME) -d $(BUILT_RAMDISK_TARGET).cpio.gz
++
++ifdef BOARD_URAMDISK_LOAD
++  INTERNAL_URAMDISKIMAGE_ARGS := -a $(BOARD_URAMDISK_LOAD) $(INTERNAL_URAMDISKIMAGE_ARGS)
++endif
++
++ifdef BOARD_URAMDISK_ENTRY
++  INTERNAL_URAMDISKIMAGE_ARGS := -e $(BOARD_URAMDISK_ENTRY) $(INTERNAL_URAMDISKIMAGE_ARGS)
++endif
+ 
+ # We just build this directly to the install location.
+ INSTALLED_RAMDISK_TARGET := $(BUILT_RAMDISK_TARGET)
+@@ -846,7 +863,25 @@ $(recovery_ramdisk): $(MKBOOTFS) \
+ 
+ ifeq ($(BOARD_USES_UBOOT),true)
+ #BOARD_USES_UBOOT
+-INTERNAL_RECOVERYIMAGE_ARGS := -A ARM -O Linux -T RAMDisk -C gzip -n Image -d $(recovery_ramdisk)
++
++ifndef RECOVERY_URAMDISK_NAME
++  RECOVERY_URAMDISK_NAME := Image
++endif
++
++ifndef RECOVERY_URAMDISK_COMPRESSION
++  RECOVERY_URAMDISK_COMPRESSION := gzip
++endif
++
++INTERNAL_RECOVERYIMAGE_ARGS := -A ARM -O Linux -T RAMDisk -C $(RECOVERY_URAMDISK_COMPRESSION) -n $(RECOVERY_URAMDISK_NAME) -d $(recovery_ramdisk)
++
++ifdef RECOVERY_URAMDISK_LOAD
++  INTERNAL_RECOVERYIMAGE_ARGS := -a $(RECOVERY_URAMDISK_LOAD) $(INTERNAL_RECOVERYIMAGE_ARGS)
++endif
++
++ifdef RECOVERY_URAMDISK_ENTRY
++  INTERNAL_RECOVERYIMAGE_ARGS := -e $(RECOVERY_URAMDISK_ENTRY) $(INTERNAL_RECOVERYIMAGE_ARGS)
++endif
++
+ recovery_uboot_ramdisk := $(recovery_ramdisk:%.img=%.ub)
+ 
+ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKIMAGE) $(recovery_ramdisk) \

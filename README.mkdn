@@ -1,6 +1,11 @@
-Cyanogenmod 7 manifests (milaq)
+Cyanogenmod 7
+================================
+manifests + cherry-picks (milaq)
 ================================
 
-DISCLAIMER: Please use 'CyanogenMod/android.git' to init the repos.
+Android 2.3 Gingerbread
 
-then pull the local manifest to .repo/local_manifest.xml and repo sync
+use 'CyanogenMod/android.git' to init the repos.
+pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync
+
+(cherry pick when needed)

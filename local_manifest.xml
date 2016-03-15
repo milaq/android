@@ -7,19 +7,14 @@
       revision="gingerbread"/>
 
     <project path="device/htc/leo"
-      name="cmhtcleo/android_device_htc_leo"
+      name="milaq/android_device_htc_leo"
       remote="github"
       revision="gingerbread"/>
 
     <project path="device/lenovo/a107"
-      name="gmarkall/android_device_ideapad_a1"
+      name="milaq/android_device_ideapad_a1"
       remote="github"
       revision="gingerbread"/>
-
-    <project path="external/libnl"
-      name="milaq/android_external_libnl"
-      remote="github"
-      revision="gingerbread" />
 
     <project path="vendor/htc/kovsky"
       name="milaq/android_vendor_htc_kovsky"
@@ -27,13 +22,18 @@
       revision="gingerbread"/>
 
     <project path="vendor/htc/leo"
-      name="cmhtcleo/android_vendor_htc_leo"
+      name="milaq/android_vendor_htc_leo"
       remote="github"
       revision="gingerbread"/>
 
     <project path="vendor/lenovo/a107"
-      name="gmarkall/android_vendor_lenovo_a1_07"
+      name="milaq/android_vendor_lenovo_a1_07"
       remote="github"
       revision="gingerbread"/>
+
+    <project path="external/libnl"
+      name="milaq/android_external_libnl"
+      remote="github"
+      revision="gingerbread" />
 
   </manifest>
