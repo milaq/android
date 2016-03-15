@@ -12,7 +12,7 @@
       revision="gingerbread"/>
 
     <project path="device/lenovo/a107"
-      name="milaq/android_device_ideapad_a1"
+      name="milaq/android_device_lenovo_a107"
       remote="github"
       revision="gingerbread"/>
 
@@ -27,7 +27,7 @@
       revision="gingerbread"/>
 
     <project path="vendor/lenovo/a107"
-      name="milaq/android_vendor_lenovo_a1_07"
+      name="milaq/android_vendor_lenovo_a107"
       remote="github"
       revision="gingerbread"/>
 
