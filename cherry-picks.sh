@@ -29,10 +29,10 @@ function apply {
 BRANCH=stable/cm-13.0-ZNH0E
 
 # Email: Add support for ignoring exchange server policy (1/2)
-apply add-support-for-ignoring-exchange-server-policy-1-2 packages/apps/Email
+#apply add-support-for-ignoring-exchange-server-policy-1-2 packages/apps/Email
 
 # Exchange: Add support for ignoring exchange server policy (2/2)
-apply add-support-for-ignoring-exchange-server-policy-2-2 packages/apps/Exchange
+#apply add-support-for-ignoring-exchange-server-policy-2-2 packages/apps/Exchange
 
 # recovery: non-touch hacks
 apply recovery-non-touch-hacks bootable/recovery
