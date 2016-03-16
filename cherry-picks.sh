@@ -1,15 +1,4 @@
 #!/bin/bash
-# ---------------------------------------------------------
-# cherry-picks
-# use pushd to enter directories
-#
-# add cherry-picks like this:
-#
-# # mkbootimg: support pagesize 8192
-# pushd system/core
-# git fetch https://github.com/CyanogenMod/android_system_core ics && git cherry-pick 67ffceadeab46d4a43aadac0f574b14e844e01a5
-# check_clean
-# ---------------------------------------------------------
 
 function check_clean {
   if [ -e *.patch ]
@@ -37,19 +26,16 @@ function apply {
   check_clean
 }
 
-#
-# insert cherry-picks below
-#
-BRANCH=stable/cm-12.1-YOG4P
+BRANCH=stable/cm-13.0-ZNH0E
 
 # Email: Add support for ignoring exchange server policy (1/2)
-apply Add-support-for-ignoring-exchange-server-policy-1-2 packages/apps/Email
+apply add-support-for-ignoring-exchange-server-policy-1-2 packages/apps/Email
 
 # Exchange: Add support for ignoring exchange server policy (2/2)
-apply Add-support-for-ignoring-exchange-server-policy-2-2 packages/apps/Exchange
+apply add-support-for-ignoring-exchange-server-policy-2-2 packages/apps/Exchange
 
 # recovery: non-touch hacks
-apply 14-12-21_recovery-non-touch-hacks bootable/recovery
+apply recovery-non-touch-hacks bootable/recovery
 
 # modversion: add MLQ infix to indicate changes
 apply modversion-add-MLQ-infix-to-indicate-changes vendor/cm

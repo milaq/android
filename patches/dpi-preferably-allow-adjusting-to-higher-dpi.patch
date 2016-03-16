@@ -1,6 +1,6 @@
-From cfe60d9435d97c8f2adc02dd753a4a00b391b397 Mon Sep 17 00:00:00 2001
+From 49db2f2d099cec0336edd94e68089d47fd66972a Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Sat, 26 Dec 2015 16:57:10 +0100
+Date: Wed, 16 Mar 2016 00:52:05 +0100
 Subject: [PATCH] dpi: preferably allow adjusting to higher dpi
 
 to be used in conjunction with lowered default dpi patches to allow
@@ -14,20 +14,20 @@ dpi patches.
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/com/android/settings/DisplaySettings.java b/src/com/android/settings/DisplaySettings.java
-index a76ec13..dfda9bd 100644
+index 399e1eb..8bcb7ec 100644
 --- a/src/com/android/settings/DisplaySettings.java
 +++ b/src/com/android/settings/DisplaySettings.java
-@@ -185,8 +185,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
-                 currentDensity = defaultDensity;
-             }
+@@ -200,8 +200,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
+                     currentDensity = defaultDensity;
+                 }
  
--            int factor = defaultDensity >= 480 ? 40 : 20;
--            int minimumDensity = defaultDensity - 4 * factor;
-+            int factor = defaultDensity >= 320 ? 40 : 20;
-+            int minimumDensity = defaultDensity - 2 * factor;
-             int currentIndex = -1;
-             String[] densityEntries = new String[7];
-             String[] densityValues = new String[7];
+-                int factor = defaultDensity >= 480 ? 40 : 20;
+-                int minimumDensity = defaultDensity - 4 * factor;
++                int factor = defaultDensity >= 320 ? 40 : 20;
++                int minimumDensity = defaultDensity - 2 * factor;
+                 int currentIndex = -1;
+                 String[] densityEntries = new String[7];
+                 String[] densityValues = new String[7];
 -- 
-2.6.4
+2.7.2
 

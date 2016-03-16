@@ -1,13 +1,13 @@
 From 5940082208413ebe0db5edf1f76cedc1cc88aa77 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
 Date: Thu, 30 Apr 2015 17:07:30 +0200
-Subject: [PATCH] Add support for ignoring exchange server policy (1/2)
+Subject: [PATCH] add support for ignoring exchange server policy (1/2)
 
-Some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.). So make it possible to ignore any policies pushed by the exchange server.
+some of us don't like the policies enforced by some exchange server configurations or the inconveniences that come with it (safe lockscreen, etc.). So make it possible to ignore any policies pushed by the exchange server.
 
 based on the "ExchangeBypassXposed" module by Shantanu Goel.
 
-This also requires the app to be signed with platform keys.
+this also requires the app to be signed with platform keys.
 ---
  emailcommon/Android.mk                                      |  2 --
  .../src/com/android/emailcommon/provider/Policy.java        | 13 ++++++++++++-

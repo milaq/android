@@ -1,0 +1,33 @@
+From bd507df82f03613c4a4272db42b432e055bed7fc Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Wed, 16 Mar 2016 00:46:30 +0100
+Subject: [PATCH] recovery: non-touch hacks
+
+this is a recovery, not an OS you should use regularly
+---
+ ui.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/ui.cpp b/ui.cpp
+index d28ede5..55cddfa 100644
+--- a/ui.cpp
++++ b/ui.cpp
+@@ -230,6 +230,7 @@ int RecoveryUI::OnInputEvent(int fd, uint32_t epevents) {
+     }
+ 
+     switch (ev.type) {
++#ifdef TOUCH_ENABLE
+     case EV_SYN:
+         ProcessSyn(dev, ev.code, ev.value);
+         break;
+@@ -239,6 +240,7 @@ int RecoveryUI::OnInputEvent(int fd, uint32_t epevents) {
+     case EV_REL:
+         ProcessRel(dev, ev.code, ev.value);
+         break;
++#endif
+     case EV_KEY:
+         ProcessKey(dev, ev.code, ev.value);
+         break;
+-- 
+2.7.2
+

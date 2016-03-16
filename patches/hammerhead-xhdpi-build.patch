@@ -1,6 +1,6 @@
-From be0ea88a42e65f20b377ba8a4687d32ba7baf2b2 Mon Sep 17 00:00:00 2001
+From 4daadab50d0d18c3853dae1f7f40f80c17928359 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Fri, 1 May 2015 17:59:58 +0200
+Date: Wed, 16 Mar 2016 00:42:55 +0100
 Subject: [PATCH] hammerhead xhdpi build
 
 ---
@@ -8,10 +8,10 @@ Subject: [PATCH] hammerhead xhdpi build
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 2bc9590..92cd2d5 100644
+index e701100..d1d0f0e 100644
 --- a/device.mk
 +++ b/device.mk
-@@ -101,7 +101,7 @@ PRODUCT_COPY_FILES += \
+@@ -104,7 +104,7 @@ PRODUCT_COPY_FILES += \
      device/lge/hammerhead/spn-conf.xml:system/etc/spn-conf.xml
  
  PRODUCT_AAPT_CONFIG := normal
@@ -20,7 +20,7 @@ index 2bc9590..92cd2d5 100644
  
  PRODUCT_CHARACTERISTICS := nosdcard
  
-@@ -222,7 +222,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -227,7 +227,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.opengles.version=196608
  
  PRODUCT_PROPERTY_OVERRIDES += \
@@ -30,5 +30,5 @@ index 2bc9590..92cd2d5 100644
  PRODUCT_PROPERTY_OVERRIDES += \
      persist.hwc.mdpcomp.enable=true
 -- 
-2.3.7
+2.7.2
 

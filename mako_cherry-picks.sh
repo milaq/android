@@ -1,15 +1,4 @@
 #!/bin/bash
-# ---------------------------------------------------------
-# cherry-picks
-# use pushd to enter directories
-#
-# add cherry-picks like this:
-#
-# # mkbootimg: support pagesize 8192
-# pushd system/core
-# git fetch https://github.com/CyanogenMod/android_system_core ics && git cherry-pick 67ffceadeab46d4a43aadac0f574b14e844e01a5
-# check_clean
-# ---------------------------------------------------------
 
 function check_clean {
   if [ -e *.patch ]
@@ -37,13 +26,10 @@ function apply {
   check_clean
 }
 
-#
-# insert cherry-picks below
-#
-BRANCH=stable/cm-12.1-YOG4P
+BRANCH=stable/cm-13.0-ZNH0E
 
 # mako hdpi build
-apply 14-11-19_mako-hdpi-build device/lge/mako
+apply mako-hdpi-build device/lge/mako
 
 # minimize softbutton spacing
 apply minimize-softbutton-spacing frameworks/base

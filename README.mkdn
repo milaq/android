@@ -1,9 +1,9 @@
-Cyanogenmod 12.1 STABLE
+Cyanogenmod 13.0 STABLE (ZNH0E)
 ================================
 manifests + cherry-picks (milaq)
 ================================
 
-Android 5.1 Lollipop (stable branch)
+Android 6.0 Marshmallow (stable branch)
 
 use 'CyanogenMod/android.git' to init the repos.
 pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync
