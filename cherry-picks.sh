@@ -34,9 +34,5 @@ apply ignore-exchange-server-policy-1-2 packages/apps/Email
 # Exchange: ignore exchange server policy (2/2)
 apply ignore-exchange-server-policy-2-2 packages/apps/Exchange
 
-# recovery: non-touch hacks
-apply recovery-non-touch-hacks bootable/recovery
-
 # modversion: add MLQ infix to indicate changes
 apply modversion-add-MLQ-infix-to-indicate-changes vendor/cm
-
