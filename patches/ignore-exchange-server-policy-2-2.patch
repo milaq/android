@@ -1,0 +1,28 @@
+From 2e355c5c55b38aaf6d0db5a044df370939549d10 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Wed, 16 Mar 2016 03:13:11 +0100
+Subject: [PATCH] ignore exchange server policy (2/2)
+
+disable policies enforced by an exchange server configuration and the inconveniences and the uncertainty that go along with it.
+
+based on the "ExchangeBypassXposed" module by Shantanu Goel.
+---
+ src/com/android/exchange/adapter/ProvisionParser.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/exchange/adapter/ProvisionParser.java b/src/com/android/exchange/adapter/ProvisionParser.java
+index 4888b8d..664a08d 100644
+--- a/src/com/android/exchange/adapter/ProvisionParser.java
++++ b/src/com/android/exchange/adapter/ProvisionParser.java
+@@ -75,7 +75,7 @@ public class ProvisionParser extends Parser {
+     }
+ 
+     public boolean hasSupportablePolicySet() {
+-        return (mPolicy != null) && mIsSupportable;
++        return true;
+     }
+ 
+     public void clearUnsupportablePolicies() {
+-- 
+2.7.2
+
