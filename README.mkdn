@@ -1,9 +1,9 @@
-Cyanogenmod 13.0 STABLE (ZNH0E)
+Cyanogenmod 13.0
 ================================
 manifests + cherry-picks (milaq)
 ================================
 
-Android 6.0 Marshmallow (stable branch)
+Android 6.0 Marshmallow
 
 use 'CyanogenMod/android.git' to init the repos.
 pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync
