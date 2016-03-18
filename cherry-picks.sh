@@ -8,21 +8,23 @@ function check_clean {
   if [ -e ".git/rebase-apply" ]
   then
     git am --abort
-    popd
+    popd > /dev/null
     exit 1
   elif [ -e ".git/CHERRY_PICK_HEAD" ]
   then
     git cherry-pick --abort
-    popd
+    popd > /dev/null
     exit 1
   fi
-  popd
+  popd > /dev/null
 }
 
 function apply {
-  pushd $2
-  wget https://raw.githubusercontent.com/milaq/android/$BRANCH/patches/$1.patch
+  pushd $2 > /dev/null
+  echo "Getting: $1"
+  wget -q https://raw.githubusercontent.com/milaq/android/$BRANCH/patches/$1.patch
   git am $1.patch
+  echo ""
   check_clean
 }
 
