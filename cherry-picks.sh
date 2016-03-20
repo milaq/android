@@ -69,3 +69,12 @@ pushd ${FOLDER}
 wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
+
+# modversion: add MLQ infix to indicate changes
+PATCH=modversion-add-MLQ-infix-to-indicate-changes
+FOLDER=vendor/cm
+###
+pushd ${FOLDER}
+wget https://raw.github.com/milaq/android/cm-11.0/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
