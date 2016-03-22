@@ -39,3 +39,4 @@ apply minimize-softbutton-spacing frameworks/base
 # dpi adjustment settings patch
 apply dpi-preferably-allow-adjusting-to-higher-dpi packages/apps/Settings
 
+apply disable-shitdoze-until-underped device/lge/mako

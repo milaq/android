@@ -1,0 +1,23 @@
+From e45e0b6f5ac0a4fd7569591067c739803c9baab6 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Tue, 22 Mar 2016 02:48:20 +0100
+Subject: [PATCH] disable shitdoze until underped
+
+---
+ overlay/frameworks/base/core/res/res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
+index 6c68c1d..13cb63d 100644
+--- a/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -320,5 +320,5 @@
+          dozing).  This should be enabled if you have such services and expect apps to
+          correctly use them when installed on your device.  Otherwise, keep this disabled
+          so that applications can still use their own mechanisms. -->
+-    <bool name="config_enableAutoPowerModes">true</bool>
++    <bool name="config_enableAutoPowerModes">false</bool>
+ </resources>
+-- 
+2.7.3
+
