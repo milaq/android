@@ -175,7 +175,7 @@
       revision="cm-11.0"/>
 
     <project path="hardware/atheros/wlan"
-      name="CyanogenMod/android_hardware_atheros_wlan"
+      name="milaq/android_hardware_atheros_wlan"
       remote="github"
       revision="cm-11.0"/>
 
