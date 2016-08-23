@@ -28,7 +28,7 @@ function apply {
   check_clean
 }
 
-BRANCH=stable/cm-13.0-ZNH0E
+BRANCH=stable/cm-13.0
 
 # Email: ignore exchange server policy (1/2)
 apply ignore-exchange-server-policy-1-2 packages/apps/Email
