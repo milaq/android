@@ -4,7 +4,7 @@
     <project path="vendor/lge"
       name="TheMuppets/proprietary_vendor_lge"
       remote="github"
-      revision="stable/cm-13.0"/>
+      revision="cm-13.0"/>
 
     <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
 
