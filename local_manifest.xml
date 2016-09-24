@@ -12,5 +12,6 @@
       revision="cm-13.0"/>
 
     <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
+    <remove-project name="CyanogenMod/android_packages_apps_Snap"/>
 
   </manifest>
