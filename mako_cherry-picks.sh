@@ -28,7 +28,7 @@ function apply {
   check_clean
 }
 
-BRANCH=stable/cm-13.0-ZNH0E
+BRANCH=cm-13.0
 
 # mako hdpi build
 apply mako-hdpi-build device/lge/mako
