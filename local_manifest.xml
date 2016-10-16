@@ -4,13 +4,16 @@
     <project path="vendor/htc"
       name="TheMuppets/proprietary_vendor_htc"
       remote="github"
-      revision="cm-13.0"/>
+      revision="cm-14.0"/>
       
     <project path="vendor/lge"
       name="TheMuppets/proprietary_vendor_lge"
       remote="github"
-      revision="cm-13.0"/>
+      revision="cm-14.0"/>
 
+    <remove-project name="CyanogenMod/android_packages_apps_CMFileManager"/>
+    <remove-project name="CyanogenMod/android_packages_apps_Eleven"/>
+    <remove-project name="CyanogenMod/android_packages_apps_Gello"/>
     <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
     <remove-project name="CyanogenMod/android_packages_apps_Snap"/>
 

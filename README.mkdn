@@ -1,9 +1,9 @@
-Cyanogenmod 13.0
+Cyanogenmod 14.0
 ================================
 manifests + cherry-picks (milaq)
 ================================
 
-Android 6.0 Marshmallow
+Android 7 Nougat
 
 use 'CyanogenMod/android.git' to init the repos.
 pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync
