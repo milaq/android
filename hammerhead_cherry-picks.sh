@@ -39,3 +39,5 @@ apply minimize-softbutton-spacing frameworks/base
 # dpi adjustment settings patch
 apply dpi-preferably-allow-adjusting-to-higher-dpi packages/apps/Settings
 
+# disable doze
+apply hammerhead-disable-doze device/lge/hammerhead
