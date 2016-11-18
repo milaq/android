@@ -28,14 +28,13 @@ function apply {
   check_clean
 }
 
-BRANCH=cm-13.0
+BRANCH=cm-14.1
 
 # mako hdpi build
-apply mako-hdpi-build device/lge/mako
+#apply mako-hdpi-build device/lge/mako
 
 # minimize softbutton spacing
-apply minimize-softbutton-spacing frameworks/base
+#apply minimize-softbutton-spacing frameworks/base
 
 # dpi adjustment settings patch
-apply dpi-preferably-allow-adjusting-to-higher-dpi packages/apps/Settings
-
+#apply dpi-preferably-allow-adjusting-to-higher-dpi packages/apps/Settings

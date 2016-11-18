@@ -28,16 +28,16 @@ function apply {
   check_clean
 }
 
-BRANCH=cm-13.0
+BRANCH=cm-14.1
 
 # hammerhead xhdpi build
-apply hammerhead-xhdpi-build device/lge/hammerhead
+#apply hammerhead-xhdpi-build device/lge/hammerhead
 
 # minimize softbutton spacing
-apply minimize-softbutton-spacing frameworks/base
+#apply minimize-softbutton-spacing frameworks/base
 
 # dpi adjustment settings patch
-apply dpi-preferably-allow-adjusting-to-higher-dpi packages/apps/Settings
+#apply dpi-preferably-allow-adjusting-to-higher-dpi packages/apps/Settings
 
 # disable doze
-apply hammerhead-disable-doze device/lge/hammerhead
+#apply hammerhead-disable-doze device/lge/hammerhead
