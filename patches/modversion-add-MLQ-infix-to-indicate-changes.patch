@@ -1,6 +1,6 @@
-From 1228ec39900b0dc73aaede7829c5042592b21c9f Mon Sep 17 00:00:00 2001
+From f45bf23146375f19d97ff338169ee59aebe58262 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Fri, 19 Aug 2016 17:32:12 +0200
+Date: Wed, 23 Nov 2016 17:20:54 +0100
 Subject: [PATCH] modversion: add MLQ infix to indicate cherry-picks
 
 ---
@@ -8,10 +8,10 @@ Subject: [PATCH] modversion: add MLQ infix to indicate cherry-picks
  1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/config/common.mk b/config/common.mk
-index ea5dcaa..0eb1a45 100644
+index 71865d3..ffd7405 100644
 --- a/config/common.mk
 +++ b/config/common.mk
-@@ -302,23 +302,23 @@ endif
+@@ -323,23 +323,23 @@ endif
  
  ifeq ($(CM_BUILDTYPE), RELEASE)
      ifndef TARGET_VENDOR_RELEASE_BUILD_ID
@@ -42,5 +42,5 @@ index ea5dcaa..0eb1a45 100644
  endif
  
 -- 
-2.9.3
+2.10.2
 

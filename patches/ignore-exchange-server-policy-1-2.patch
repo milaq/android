@@ -1,9 +1,9 @@
-From a5641f65f492aed4f3c4f6f6cf7d565122a551ff Mon Sep 17 00:00:00 2001
+From 55f6ea35d6c238db3c5bdc3a5b0f753567809b45 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Wed, 16 Mar 2016 03:19:24 +0100
+Date: Wed, 23 Nov 2016 17:31:23 +0100
 Subject: [PATCH] ignore exchange server policy (1/2)
 
-disable policies enforced by an exchange server configuration and the inconveniences and the uncertainty that go along with it.
+disable policies enforced by an exchange server configuration and the inconveniences and uncertainty that go along with it.
 
 based on the "ExchangeBypassXposed" module by Shantanu Goel.
 ---
@@ -286,5 +286,5 @@ index 2d22776..d5b3c02 100644
  
      /**
 -- 
-2.7.2
+2.10.2
 

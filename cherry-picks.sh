@@ -31,10 +31,10 @@ function apply {
 BRANCH=cm-14.1
 
 # Email: ignore exchange server policy (1/2)
-#apply ignore-exchange-server-policy-1-2 packages/apps/Email
+apply ignore-exchange-server-policy-1-2 packages/apps/Email
 
 # Exchange: ignore exchange server policy (2/2)
-#apply ignore-exchange-server-policy-2-2 packages/apps/Exchange
+apply ignore-exchange-server-policy-2-2 packages/apps/Exchange
 
 # modversion: add MLQ infix to indicate changes
-#apply modversion-add-MLQ-infix-to-indicate-changes vendor/cm
+apply modversion-add-MLQ-infix-to-indicate-changes vendor/cm
