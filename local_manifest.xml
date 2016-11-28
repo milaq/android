@@ -2,14 +2,10 @@
   <manifest>
 
     <project path="vendor/htc"
-      name="TheMuppets/proprietary_vendor_htc"
-      remote="github"
-      revision="cm-14.1"/>
+      name="TheMuppets/proprietary_vendor_htc"/>
       
     <project path="vendor/lge"
-      name="TheMuppets/proprietary_vendor_lge"
-      remote="github"
-      revision="cm-14.1"/>
+      name="TheMuppets/proprietary_vendor_lge"/>
 
     <remove-project name="CyanogenMod/android_packages_apps_Email"/>
     <project path="packages/apps/Email"
