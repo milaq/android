@@ -7,16 +7,6 @@
   <project path="vendor/lge"
            name="TheMuppets/proprietary_vendor_lge"/>
 
-  <remove-project name="CyanogenMod/android_packages_apps_Email"/>
-  <project path="packages/apps/Email"
-           name="CyanogenMod/android_packages_apps_Email"
-           revision="cm-13.0"/>
-    
-  <remove-project name="CyanogenMod/android_packages_apps_Exchange"/>
-  <project path="packages/apps/Exchange"
-           name="CyanogenMod/android_packages_apps_Exchange"
-           revision="cm-13.0"/>
-
   <remove-project name="CyanogenMod/android_packages_apps_CMFileManager"/>
   <remove-project name="CyanogenMod/android_packages_apps_Eleven"/>
   <remove-project name="CyanogenMod/android_packages_apps_Gello"/>
