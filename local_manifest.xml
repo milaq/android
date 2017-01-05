@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
+  <!-- Vendor blobs -->
   <project path="vendor/htc"
            name="TheMuppets/proprietary_vendor_htc"/>
       
   <project path="vendor/lge"
            name="TheMuppets/proprietary_vendor_lge"/>
 
-  <remove-project name="LineageOS/android_packages_apps_CMFileManager"/>
+  <!-- Remove cyngn.com endorsed stuff -->
   <remove-project name="LineageOS/android_packages_apps_Eleven"/>
   <remove-project name="LineageOS/android_packages_apps_Gello"/>
-  <remove-project name="LineageOS/android_packages_apps_CMUpdater"/>
   <remove-project name="LineageOS/android_packages_apps_Snap"/>
+  
+  <!-- We don't use the default updatechannel -->
+  <remove-project name="LineageOS/android_packages_apps_CMUpdater"/>
 
 </manifest>
