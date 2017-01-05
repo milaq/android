@@ -1,0 +1,30 @@
+From 6ee7b24557b1d992715483c7e883eeef3ce62492 Mon Sep 17 00:00:00 2001
+From: Andrea Scarpino <andrea@archlinux.org>
+Date: Thu, 5 Jan 2017 23:22:18 +0100
+Subject: [PATCH] Fix build with GCC >4.7
+
+---
+ WebCore/dom/make_names.pl | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/WebCore/dom/make_names.pl b/WebCore/dom/make_names.pl
+index 66f6c56d5..fad647cf6 100644
+--- a/WebCore/dom/make_names.pl
++++ b/WebCore/dom/make_names.pl
+@@ -47,12 +47,7 @@ my %tags = ();
+ my %attrs = ();
+ my %parameters = ();
+ my $extraDefines = 0;
+-my $preprocessor = "/usr/bin/gcc -E -P -x c++";
+-open( GCV, "gcc --version | head -1|");
+-if ( <GCV> =~ m/(4\.)([6-7]\.)([0-9])/) {
+-    $preprocessor = "/usr/bin/gcc -E -x c++";
+-}
+-close GCV;
++my $preprocessor = "/usr/bin/gcc -E -x c++";
+ 
+ GetOptions(
+     'tags=s' => \$tagsFile, 
+-- 
+2.11.0
+

@@ -56,3 +56,6 @@ apply no-magnetometer frameworks/base
 
 # Added driver_cmd function to nl80211 driver (needed for kovsky)
 apply nl80211_driver_cmd external/wpa_supplicant_6
+
+# Fix build with GCC 4.7
+apply Fix-build-with-GCC-4.7 external/webkit
