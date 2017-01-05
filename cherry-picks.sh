@@ -59,3 +59,6 @@ apply nl80211_driver_cmd external/wpa_supplicant_6
 
 # Fix build with GCC 4.7
 apply Fix-build-with-GCC-4.7 external/webkit
+
+# remove deprecated RomManager
+apply remove-deprecated-RomManager vendor/cyanogen
