@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-
-    <project path="device/asus/flo"
-      name="CyanogenMod/android_device_asus_flo"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/bn/encore"
-      name="CyanogenMod/android_device_bn_encore"
-      remote="github"
-      revision="cm-11.0"/>
-
     <project path="device/boxer8/ouya"
       name="milaq/android_device_boxer8_ouya"
       remote="github"
@@ -26,51 +15,6 @@
       name="milaq/android_device_htc_vision"
       remote="github"
       revision="cm-11.0"/>
-
-    <project path="device/hp/tenderloin"
-      name="milaq/android_device_hp_tenderloin"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/lge/hammerhead"
-      name="CyanogenMod/android_device_lge_hammerhead"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/lge/mako"
-      name="CyanogenMod/android_device_lge_mako"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/motorola/falcon"
-      name="CyanogenMod/android_device_motorola_falcon"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/motorola/msm8226-common"
-      name="CyanogenMod/android_device_motorola_msm8226-common"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/qcom/common"
-      name="CyanogenMod/android_device_qcom_common"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/samsung/i9100"
-      name="CyanogenMod/android_device_samsung_i9100"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="device/samsung/galaxys2-common"
-      name="CyanogenMod/android_device_samsung_galaxys2-common"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="kernel/bn/encore"
-      name="CyanogenMod/android_kernel_bn_encore"
-      remote="github"
-      revision="encore-omap3-3.0.y"/>
 
     <project path="kernel/boxer8/ouya"
       name="milaq/android_kernel_boxer8_ouya"
@@ -89,26 +33,6 @@
 
     <project path="kernel/hp/tenderloin"
       name="milaq/android_kernel_hp_tenderloin"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="kernel/google/msm"
-      name="CyanogenMod/android_kernel_google_msm"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="kernel/lge/hammerhead"
-      name="CyanogenMod/android_kernel_lge_hammerhead"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="kernel/motorola/msm8226"
-      name="CyanogenMod/android_kernel_motorola_msm8226"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="kernel/samsung/smdk4412"
-      name="CyanogenMod/android_kernel_samsung_smdk4412"
       remote="github"
       revision="cm-11.0"/>
 
@@ -157,23 +81,6 @@
       remote="github"
       revision="cm-11.0"/>
 
-    <remove-project name="CyanogenMod/android_packages_apps_CMUpdater"/>
-
-    <project path="hardware/qcom/fm"
-      name="CyanogenMod/android_hardware_qcom_fm"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="hardware/samsung"
-      name="CyanogenMod/android_hardware_samsung"
-      remote="github"
-      revision="cm-11.0"/>
-
-    <project path="packages/apps/SamsungServiceMode"
-      name="CyanogenMod/android_packages_apps_SamsungServiceMode"
-      remote="github"
-      revision="cm-11.0"/>
-
     <project path="hardware/atheros/wlan"
       name="milaq/android_hardware_atheros_wlan"
       remote="github"
@@ -204,17 +111,6 @@
       remote="github"
       revision="kitkat"/>
 
-    <project path="hardware/qcom/display-caf-new"
-      name="CyanogenMod/android_hardware_qcom_display-caf-new"
-      revision="cm-11.0" />
-
-    <project path="hardware/qcom/media-caf-new"
-      name="CyanogenMod/android_hardware_qcom_media-caf-new"
-      revision="cm-11.0" />
-
-    <project path="vendor/mlq"
-      name="milaq/android_vendor_mlq"
-      remote="github"
-      revision="master"/>
+    <remove-project name="LineageOS/android_packages_apps_CMUpdater"/>
 
   </manifest>
