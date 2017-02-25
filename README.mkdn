@@ -7,4 +7,5 @@ Android 7.1 (Nougat MR1)
 
 Use 'LineageOS/android.git' to init the repos.
 Pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync.
-Use cherry-picks.sh to pull in MLQ changes.
+
+All cherry-picks applied are listed here.
