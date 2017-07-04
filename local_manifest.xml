@@ -10,6 +10,11 @@
       name="milaq/android_device_htc_leo"
       remote="github"
       revision="cm-11.0_3.0"/>
+    
+    <project path="device/hp/tenderloin"
+      name="milaq/android_device_hp_tenderloin"
+      remote="github"
+      revision="cm-11.0"/>
 
     <project path="device/htc/vision"
       name="milaq/android_device_htc_vision"
