@@ -1,0 +1,40 @@
+From dbe59254070267d95586e222bbe44fc36f470355 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Thu, 20 Jul 2017 16:39:57 +0200
+Subject: [PATCH] add ability to set the screen dim brightness to zero
+
+handy for wall-mounted tablets in conjunction with the "screen will never sleep while plugged in" option to keep the display on while letting the screen backlight turn off
+---
+ .../java/com/android/server/power/DisplayPowerController.java    | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/services/java/com/android/server/power/DisplayPowerController.java b/services/java/com/android/server/power/DisplayPowerController.java
+index 093df066b4e..f56dff2e529 100644
+--- a/services/java/com/android/server/power/DisplayPowerController.java
++++ b/services/java/com/android/server/power/DisplayPowerController.java
+@@ -37,6 +37,7 @@ import android.os.Looper;
+ import android.os.Message;
+ import android.os.PowerManager;
+ import android.os.SystemClock;
++import android.os.SystemProperties;
+ import android.os.UserHandle;
+ import android.provider.Settings;
+ import android.text.format.DateUtils;
+@@ -398,8 +399,12 @@ final class DisplayPowerController {
+ 
+         final Resources resources = context.getResources();
+ 
+-        mScreenBrightnessDimConfig = clampAbsoluteBrightness(resources.getInteger(
+-                com.android.internal.R.integer.config_screenBrightnessDim));
++        if (SystemProperties.getBoolean("persist.sys.screen_dim_zero", false)) {
++            mScreenBrightnessDimConfig = clampAbsoluteBrightness(0);
++        } else {
++            mScreenBrightnessDimConfig = clampAbsoluteBrightness(resources.getInteger(
++                    com.android.internal.R.integer.config_screenBrightnessDim));
++        }
+ 
+         int screenBrightnessMinimum = Math.min(resources.getInteger(
+                 com.android.internal.R.integer.config_screenBrightnessSettingMinimum),
+-- 
+2.13.3
+
