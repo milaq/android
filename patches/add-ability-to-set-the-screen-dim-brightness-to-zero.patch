@@ -1,0 +1,40 @@
+From 2ded9628c744aba9c286cc36df99f6e8427dadb3 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Sun, 20 Aug 2017 16:03:53 +0200
+Subject: [PATCH] add ability to set the screen dim brightness to zero
+
+handy for wall-mounted tablets in conjunction with the "screen will never sleep while plugged in" option to keep the display on while letting the screen backlight turn off
+---
+ .../java/com/android/server/display/DisplayPowerController.java  | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/services/core/java/com/android/server/display/DisplayPowerController.java b/services/core/java/com/android/server/display/DisplayPowerController.java
+index 20febd232e0..a1a36793e32 100644
+--- a/services/core/java/com/android/server/display/DisplayPowerController.java
++++ b/services/core/java/com/android/server/display/DisplayPowerController.java
+@@ -37,6 +37,7 @@ import android.os.Message;
+ import android.os.PowerManager;
+ import android.os.RemoteException;
+ import android.os.SystemClock;
++import android.os.SystemProperties;
+ import android.os.Trace;
+ import android.util.MathUtils;
+ import android.util.Slog;
+@@ -275,8 +276,12 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
+         mScreenBrightnessDozeConfig = clampAbsoluteBrightness(resources.getInteger(
+                 com.android.internal.R.integer.config_screenBrightnessDoze));
+ 
+-        mScreenBrightnessDimConfig = clampAbsoluteBrightness(resources.getInteger(
+-                com.android.internal.R.integer.config_screenBrightnessDim));
++        if (SystemProperties.getBoolean("persist.sys.screen_dim_zero", false)) {
++            mScreenBrightnessDimConfig = clampAbsoluteBrightness(0);
++        } else {
++            mScreenBrightnessDimConfig = clampAbsoluteBrightness(resources.getInteger(
++                    com.android.internal.R.integer.config_screenBrightnessDim));
++        }
+ 
+         mScreenBrightnessDarkConfig = clampAbsoluteBrightness(resources.getInteger(
+                 com.android.internal.R.integer.config_screenBrightnessDark));
+-- 
+2.14.1
+

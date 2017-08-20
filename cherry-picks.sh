@@ -43,6 +43,15 @@ wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
 git am ${PATCH}.patch
 check_clean
 
+# add ability to set the screen dim brightness to zero
+PATCH=add-ability-to-set-the-screen-dim-brightness-to-zero
+FOLDER=frameworks/base
+###
+pushd ${FOLDER}
+wget https://raw.github.com/milaq/android/cm-12.0/patches/${PATCH}.patch
+git am ${PATCH}.patch
+check_clean
+
 # recovery: non-touch hacks
 PATCH=14-12-21_recovery-non-touch-hacks
 FOLDER=bootable/recovery
