@@ -1,0 +1,5 @@
+# tuna hdpi build
+device/samsung/tuna tuna-hdpi-build.patch
+
+# minimize softbutton spacing
+frameworks/base minimize-softbutton-spacing

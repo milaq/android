@@ -1,0 +1,14 @@
+# Email: Add support for ignoring exchange server policy (1/2)
+packages/apps/Email Add-support-for-ignoring-exchange-server-policy-1-2
+
+# Exchange: Add support for ignoring exchange server policy (2/2)
+packages/apps/Exchange Add-support-for-ignoring-exchange-server-policy-2-2
+
+# add ability to set the screen dim brightness to zero
+frameworks/base add-ability-to-set-the-screen-dim-brightness-to-zero
+
+# recovery: non-touch hacks
+bootable/recovery recovery-non-touch-hacks
+
+# make_ext4fs: workaround for a glibc scandir bug
+system/extras make_ext4fs-workaround-for-a-glibc-scandir-bug

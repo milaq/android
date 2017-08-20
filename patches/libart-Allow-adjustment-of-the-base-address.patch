@@ -1,0 +1,32 @@
+From 4fb8b2d9494ab558bcffc0cb9b4102ea16b8c2c8 Mon Sep 17 00:00:00 2001
+From: flintman <flintman@flintmancomputers.com>
+Date: Sun, 20 Aug 2017 18:58:41 +0200
+Subject: [PATCH] libart:  Allow adjustment of the base address
+
+On some devices the base address may need to be adjusted to
+prevent overlapping of memory.  This will allow the adjustment
+to take place in the boardconfig.mk
+---
+ core/dex_preopt_libart.mk | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/core/dex_preopt_libart.mk b/core/dex_preopt_libart.mk
+index 5af2be27e..9b487f499 100644
+--- a/core/dex_preopt_libart.mk
++++ b/core/dex_preopt_libart.mk
+@@ -20,7 +20,12 @@ PRELOADED_CLASSES := frameworks/base/preloaded-classes
+ 
+ # start of image reserved address space
+ LIBART_IMG_HOST_BASE_ADDRESS   := 0x60000000
++
++ifneq ($(LIBART_IMG_BASE),)
++LIBART_IMG_TARGET_BASE_ADDRESS := $(LIBART_IMG_BASE)
++else
+ LIBART_IMG_TARGET_BASE_ADDRESS := 0x70000000
++endif
+ 
+ define get-product-default-property
+ $(strip $(patsubst $(1)=%,%,$(filter $(1)=%,$(PRODUCT_DEFAULT_PROPERTY_OVERRIDES))))
+-- 
+2.14.1
+

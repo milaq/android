@@ -1,0 +1,5 @@
+# bacon xhdpi build
+device/oneplus/bacon bacon-xhdpi-build
+
+# minimize softbutton spacing
+frameworks/base minimize-softbutton-spacing

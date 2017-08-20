@@ -1,0 +1,11 @@
+# wifi.c: allow devices to specify driver delay
+hardware/libhardware_legacy wifi.c-allow-devices-to-specify-driver-delay
+
+# btservice/AdaperState: handle ENABLED_READY in OffState
+packages/apps/Bluetooth btservice-AdaperState-handle-ENABLED_READY
+
+# libart: Allow adjustment of the base address
+build libart-Allow-adjustment-of-the-base-address
+
+# art: allow devices to opt out of GAP check
+art art-allow-devices-to-opt-out-of-GAP-check

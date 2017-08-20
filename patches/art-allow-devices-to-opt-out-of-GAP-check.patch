@@ -1,0 +1,49 @@
+From d7b91c8ec84fcd04db9074c7b302d65fd7db1d00 Mon Sep 17 00:00:00 2001
+From: flintman <flintman@flintmancomputers.com>
+Date: Sun, 20 Aug 2017 19:04:19 +0200
+Subject: [PATCH] art: allow devices to opt out of GAP check
+
+---
+ runtime/Android.mk | 5 +++++
+ runtime/gc/heap.cc | 2 ++
+ 2 files changed, 7 insertions(+)
+
+diff --git a/runtime/Android.mk b/runtime/Android.mk
+index 92e200957..8ce4c57a4 100644
+--- a/runtime/Android.mk
++++ b/runtime/Android.mk
+@@ -330,6 +330,11 @@ ifeq ($(ART_USE_HSPACE_COMPACT),true)
+   LIBART_CFLAGS += -DART_USE_HSPACE_COMPACT
+ endif
+ 
++# No gap check is bugging out
++ifeq ($(ART_DONT_CHECK_GAP),true)
++  LIBART_CFLAGS += -DDONT_CHECK_GAP
++endif
++
+ # $(1): target or host
+ # $(2): ndebug or debug
+ define build-libart
+diff --git a/runtime/gc/heap.cc b/runtime/gc/heap.cc
+index 6af98cf14..c81995203 100644
+--- a/runtime/gc/heap.cc
++++ b/runtime/gc/heap.cc
+@@ -412,6 +412,7 @@ Heap::Heap(size_t initial_size, size_t growth_limit, size_t min_free, size_t max
+     mark_compact_collector_ = new collector::MarkCompact(this);
+     garbage_collectors_.push_back(mark_compact_collector_);
+   }
++#ifndef DONT_CHECK_GAP
+   if (GetImageSpace() != nullptr && non_moving_space_ != nullptr) {
+     // Check that there's no gap between the image space and the non moving space so that the
+     // immune region won't break (eg. due to a large object allocated in the gap).
+@@ -422,6 +423,7 @@ Heap::Heap(size_t initial_size, size_t growth_limit, size_t min_free, size_t max
+       LOG(FATAL) << "There's a gap between the image space and the main space";
+     }
+   }
++#endif
+   if (running_on_valgrind_) {
+     Runtime::Current()->GetInstrumentation()->InstrumentQuickAllocEntryPoints();
+   }
+-- 
+2.14.1
+

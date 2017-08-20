@@ -1,0 +1,5 @@
+# mako hdpi build
+device/lge/mako mako-hdpi-build
+
+# minimize softbutton spacing
+frameworks/base minimize-softbutton-spacing
