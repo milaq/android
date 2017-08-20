@@ -1,0 +1,11 @@
+# RIL: fix signal for legacy gsm devices
+frameworks/opt/telephony RIL-fix-signal-for-legacy-gsm-devices
+
+# work around for invalid AppType on legacy gsm devices
+frameworks/opt/telephony Work-around-for-invalid-AppType-on-legacy-gsm-device
+
+# wpa_supplicant: Don't enable NL80211 unconditionally
+#external/wpa_supplicant_8 wpa_supplicant-Don-t-enable-NL80211-unconditionally
+
+# wext: use combo scan to avoid SIOCSIWSCAN error
+#external/wpa_supplicant_8 wext-use-combo-scan-to-avoid-SIOCSIWSCAN-error

@@ -1,0 +1,83 @@
+From 94b0092f55a4b6b6d877d58c6dea3bd417f9cbdd Mon Sep 17 00:00:00 2001
+From: Andrew Dodd <atd7@cornell.edu>
+Date: Mon, 10 Dec 2012 08:26:54 -0500
+Subject: [PATCH] DisplayDevice: Backwards compatibility with old EGL
+
+From 4.1 to 4.2, the display subsystem was reworked to
+use SurfaceTextureClient/BufferQueue instead of
+FramebufferNativeWindow for the framebuffer itself.
+
+Unfortunately, some legacy EGL libraries make assumptions
+that any framebuffer device will be FramebufferNativeWindow.
+
+These EGL libraries will fail when used in 4.2 as if the
+framebuffer is not FramebufferNativeWindow, they will
+try to dequeue more than one buffer at a time, which
+will cause a hang of the graphics subsystem.
+
+This allows use of FramebufferNativeWindow to keep
+legacy EGL implementations happy.  Confirmed EGL
+implementations that need this include but are
+not limited to:
+
+Set BOARD_EGL_NEEDS_FNW to use
+
+Tegra2/3 ICS EGL
+Mali400 ICS EGL (Allwinner A10)
+Mali400 Jellybean (4.1) EGL (Samsung Exynos4)
+Adreno Jellybean (4.1) EGL (legacy qcom devices using PMEM)
+
+Original implementation by OndraOrg of XDA:
+http://forum.xda-developers.com/showpost.php?p=34469675&postcount=19
+
+Change-Id: If7c455035a002f272fa1a8af1cfcc60eb7ade894
+---
+ services/surfaceflinger/Android.mk        |    4 ++++
+ services/surfaceflinger/DisplayDevice.cpp |    8 ++++++++
+ 2 files changed, 12 insertions(+), 0 deletions(-)
+
+diff --git a/services/surfaceflinger/Android.mk b/services/surfaceflinger/Android.mk
+index e33daa2..66b4575 100644
+--- a/services/surfaceflinger/Android.mk
++++ b/services/surfaceflinger/Android.mk
+@@ -52,6 +52,10 @@ ifeq ($(TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS),true)
+     LOCAL_CFLAGS += -DFORCE_HWC_COPY_FOR_VIRTUAL_DISPLAYS
+ endif
+ 
++ifeq ($(BOARD_EGL_NEEDS_FNW),true)
++    LOCAL_CFLAGS += -DEGL_NEEDS_FNW
++endif
++
+ ifneq ($(NUM_FRAMEBUFFER_SURFACE_BUFFERS),)
+   LOCAL_CFLAGS += -DNUM_FRAMEBUFFER_SURFACE_BUFFERS=$(NUM_FRAMEBUFFER_SURFACE_BUFFERS)
+ endif
+diff --git a/services/surfaceflinger/DisplayDevice.cpp b/services/surfaceflinger/DisplayDevice.cpp
+index 5fa513c..f75a508 100644
+--- a/services/surfaceflinger/DisplayDevice.cpp
++++ b/services/surfaceflinger/DisplayDevice.cpp
+@@ -29,6 +29,10 @@
+ 
+ #include <gui/Surface.h>
+ 
++#ifdef EGL_NEEDS_FNW
++#include <ui/FramebufferNativeWindow.h>
++#endif
++
+ #include <hardware/gralloc.h>
+ 
+ #include "DisplayHardware/DisplaySurface.h"
+@@ -74,7 +78,11 @@ DisplayDevice::DisplayDevice(
+       mOrientation()
+ {
+     mNativeWindow = new Surface(producer, false);
++#ifndef EGL_NEEDS_FNW
+     ANativeWindow* const window = mNativeWindow.get();
++#else
++    ANativeWindow* const window = new FramebufferNativeWindow();
++#endif
+ 
+     int format;
+     window->query(window, NATIVE_WINDOW_FORMAT, &format);
+-- 
+1.7.9
+

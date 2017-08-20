@@ -1,0 +1,119 @@
+From a380243e161e8135eda5992235d54b0d18c3c6b5 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Thu, 3 Jul 2014 11:54:05 +0200
+Subject: [PATCH] minimize softbutton spacing
+
+---
+ packages/SystemUI/res/layout/mid_navigation_bar_land.xml | 8 ++++----
+ packages/SystemUI/res/layout/mid_navigation_bar_port.xml | 8 ++++----
+ packages/SystemUI/res/layout/navigation_bar.xml          | 8 ++++----
+ 3 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/packages/SystemUI/res/layout/mid_navigation_bar_land.xml b/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
+index d0f7af0..5381d1d 100644
+--- a/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
++++ b/packages/SystemUI/res/layout/mid_navigation_bar_land.xml
+@@ -30,14 +30,14 @@
+         android:id="@+id/dpad_left"
+         android:visibility="gone"
+         android:layout_width="match_parent"
+-        android:layout_height="40dp"
++        android:layout_height="80dp"
+         android:layout_weight="0"
+         android:scaleType="fitCenter"
+         systemui:keyRepeat="true"
+         systemui:glowBackground="@drawable/ic_sysbar_highlight_land" />
+     <com.android.systemui.statusbar.policy.KeyButtonView
+         android:id="@+id/one"
+-        android:layout_height="40dp"
++        android:layout_height="80dp"
+         android:layout_width="match_parent"
+         android:layout_weight="0"
+         systemui:glowBackground="@drawable/ic_sysbar_highlight_land" />
+@@ -98,7 +98,7 @@
+     </LinearLayout>
+     <com.android.systemui.statusbar.policy.KeyButtonView
+         android:id="@+id/six"
+-        android:layout_height="40dp"
++        android:layout_height="80dp"
+         android:layout_width="match_parent"
+         android:layout_weight="0"
+         systemui:keyRepeat="true"
+@@ -107,7 +107,7 @@
+         android:id="@+id/dpad_right"
+         android:visibility="gone"
+         android:layout_width="match_parent"
+-        android:layout_height="40dp"
++        android:layout_height="80dp"
+         android:layout_weight="0"
+         android:scaleType="fitCenter"
+         systemui:keyRepeat="true"
+diff --git a/packages/SystemUI/res/layout/mid_navigation_bar_port.xml b/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
+index 5cb4a75..9232204 100644
+--- a/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
++++ b/packages/SystemUI/res/layout/mid_navigation_bar_port.xml
+@@ -30,7 +30,7 @@
+     <com.android.systemui.statusbar.policy.KeyButtonView
+         android:id="@+id/dpad_left"
+         android:visibility="gone"
+-        android:layout_width="40dp"
++        android:layout_width="80dp"
+         android:layout_height="match_parent"
+         android:layout_weight="0"
+         android:scaleType="fitCenter"
+@@ -38,7 +38,7 @@
+         systemui:glowBackground="@drawable/ic_sysbar_highlight" />
+     <com.android.systemui.statusbar.policy.KeyButtonView
+         android:id="@+id/one"
+-        android:layout_width="40dp"
++        android:layout_width="80dp"
+         android:layout_height="match_parent"
+         android:layout_weight="0"
+         android:scaleType="fitCenter"
+@@ -96,7 +96,7 @@
+     </LinearLayout>
+     <com.android.systemui.statusbar.policy.KeyButtonView
+         android:id="@+id/six"
+-        android:layout_width="40dp"
++        android:layout_width="80dp"
+         android:layout_height="match_parent"
+         android:layout_weight="0"
+         android:scaleType="fitCenter"
+@@ -104,7 +104,7 @@
+     <com.android.systemui.statusbar.policy.KeyButtonView
+         android:id="@+id/dpad_right"
+         android:visibility="gone"
+-        android:layout_width="40dp"
++        android:layout_width="80dp"
+         android:layout_height="match_parent"
+         android:layout_weight="0"
+         android:scaleType="fitCenter"
+diff --git a/packages/SystemUI/res/layout/navigation_bar.xml b/packages/SystemUI/res/layout/navigation_bar.xml
+index dd237b9..c4981ce 100644
+--- a/packages/SystemUI/res/layout/navigation_bar.xml
++++ b/packages/SystemUI/res/layout/navigation_bar.xml
+@@ -48,8 +48,8 @@
+             android:layout_width="match_parent"
+             android:orientation="horizontal"
+             android:gravity="center_horizontal"
+-            android:layout_marginStart="40dp"
+-            android:layout_marginEnd="40dp"
++            android:layout_marginStart="80dp"
++            android:layout_marginEnd="80dp"
+             android:layout_gravity="center_horizontal"
+             android:id="@+id/lights_out"
+             android:visibility="gone"
+@@ -165,8 +165,8 @@
+             android:orientation="vertical"
+             android:gravity="center_vertical"
+             android:layout_gravity="center_vertical"
+-            android:layout_marginTop="40dp"
+-            android:layout_marginBottom="40dp"
++            android:layout_marginTop="80dp"
++            android:layout_marginBottom="80dp"
+             android:id="@+id/lights_out"
+             android:visibility="gone"
+             >
+-- 
+1.9.1
+

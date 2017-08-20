@@ -1,0 +1,41 @@
+From 40540854d61dd30299421a59a69b25bf83069063 Mon Sep 17 00:00:00 2001
+From: Andrew Sutherland <dr3wsuth3rland@gmail.com>
+Date: Sat, 15 Dec 2012 20:25:23 -0600
+Subject: [PATCH 1/2] Work around for invalid AppType on legacy gsm devices
+
+Passion is reporting AppType as UNKNOWN, in 4.1 it seems to have fallenback on
+type SIM but in 4.2 some restructuring prevents this. So to workaround force to type SIM
+
+implemented as oldRilFeature apptypesim
+
+Only use if you see in logcat.
+
+D/RIL_UiccCardApplication(  567): Creating UiccApp: {APPTYPE_UNKNOWN,APPSTATE_DETECTED}
+E/RIL_UiccCard(  567): App index 0 is invalid since it's not APPTYPE_SIM and not APPTYPE_USIM
+
+Change-Id: I7c13ef8f2a30f5e00116e16691f44aef5a1401af
+---
+ src/java/com/android/internal/telephony/RIL.java | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/java/com/android/internal/telephony/RIL.java b/src/java/com/android/internal/telephony/RIL.java
+index d11ec78..a5f4ea7 100644
+--- a/src/java/com/android/internal/telephony/RIL.java
++++ b/src/java/com/android/internal/telephony/RIL.java
+@@ -3660,9 +3660,13 @@ public class RIL extends BaseCommands implements CommandsInterface {
+         }
+         cardStatus.mApplications = new IccCardApplicationStatus[numApplications];
+ 
++        oldRil = needsOldRilFeature("apptypesim");
++
+         for (int i = 0 ; i < numApplications ; i++) {
+             appStatus = new IccCardApplicationStatus();
+             appStatus.app_type       = appStatus.AppTypeFromRILInt(p.readInt());
++            // Seems the simplest way so we dont mess up the parcel
++            if (oldRil) appStatus.app_type = appStatus.AppTypeFromRILInt(1);
+             appStatus.app_state      = appStatus.AppStateFromRILInt(p.readInt());
+             appStatus.perso_substate = appStatus.PersoSubstateFromRILInt(p.readInt());
+             appStatus.aid            = p.readString();
+-- 
+1.8.1.2
+

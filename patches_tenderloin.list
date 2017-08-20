@@ -1,0 +1,2 @@
+# btservice/AdaperState: handle ENABLED_READY in OffState
+packages/apps/Bluetooth btservice-AdaperState-handle-ENABLED_READY

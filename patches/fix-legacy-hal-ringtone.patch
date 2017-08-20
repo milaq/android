@@ -1,0 +1,29 @@
+From fe7e7d0f1995411c5d7491393f61f50e4532fbb4 Mon Sep 17 00:00:00 2001
+From: Mustaavalkosta <niko.hyrynsalmi@gmail.com>
+Date: Tue, 3 Dec 2013 19:06:06 +0000
+Subject: [PATCH] [HACK] fix ringtone temporarily until proper solution is
+ found (paulb-nl)
+
+Change-Id: I185179d3d3c3952347663d7e7ccf47051487dbe1
+---
+ legacy/msm7x30/AudioPolicyManager.cpp | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/legacy/msm7x30/AudioPolicyManager.cpp b/legacy/msm7x30/AudioPolicyManager.cpp
+index 429f2ad..84a195e 100644
+--- a/legacy/msm7x30/AudioPolicyManager.cpp
++++ b/legacy/msm7x30/AudioPolicyManager.cpp
+@@ -1790,9 +1790,7 @@ uint32_t AudioPolicyManager::setOutputDevice(audio_io_handle_t output,
+ 
+     ALOGV("setOutputDevice() prevDevice %04x", prevDevice);
+ 
+-    if (device != AUDIO_DEVICE_NONE) {
+-        outputDesc->mDevice = device;
+-    }
++    outputDesc->mDevice = device;
+     muteWaitMs = checkDeviceMuteStrategies(outputDesc, prevDevice, delayMs);
+ 
+     // Do not change the routing if:
+-- 
+2.0.3
+

@@ -1,0 +1,45 @@
+From 8c91c865411ac4e5f7acbb647c06dcae0a9e4498 Mon Sep 17 00:00:00 2001
+From: Nathan Chan <e334cn@gmail.com>
+Date: Tue, 17 Sep 2013 10:42:00 -0700
+Subject: [PATCH] wpa_supplicant: Don't enable NL80211 unconditionally
+
+This should be enabled by BOARD_WPA_SUPPLICANT_DRIVER, not as a
+hard default
+
+(was) Change-Id: I18d08fde3dd6180267bb60677bbc75fc3b7726ef
+
+Change-Id: I46599e32cbed16ff61a73068d5c68aa8b2ddf742
+---
+ hostapd/defconfig        | 2 +-
+ wpa_supplicant/defconfig | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/hostapd/defconfig b/hostapd/defconfig
+index b5ddca3..74b2060 100644
+--- a/hostapd/defconfig
++++ b/hostapd/defconfig
+@@ -20,7 +20,7 @@ CONFIG_DRIVER_HOSTAP=y
+ #CFLAGS += -I../../madwifi # change to the madwifi source directory
+ 
+ # Driver interface for drivers using the nl80211 kernel interface
+-CONFIG_DRIVER_NL80211=y
++# CONFIG_DRIVER_NL80211=y
+ 
+ # Driver interface for FreeBSD net80211 layer (e.g., Atheros driver)
+ #CONFIG_DRIVER_BSD=y
+diff --git a/wpa_supplicant/defconfig b/wpa_supplicant/defconfig
+index e867bae..963d4f6 100644
+--- a/wpa_supplicant/defconfig
++++ b/wpa_supplicant/defconfig
+@@ -86,7 +86,7 @@ CONFIG_DRIVER_ATMEL=y
+ CONFIG_DRIVER_WEXT=y
+ 
+ # Driver interface for Linux drivers using the nl80211 kernel interface
+-CONFIG_DRIVER_NL80211=y
++# CONFIG_DRIVER_NL80211=y
+ 
+ # Driver interface for FreeBSD net80211 layer (e.g., Atheros driver)
+ #CONFIG_DRIVER_BSD=y
+-- 
+1.8.3.2
+

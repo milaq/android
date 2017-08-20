@@ -1,0 +1,54 @@
+From 43a3de478b0ae41a1b84568b13eba6f425c8c69f Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Wed, 12 Nov 2014 21:17:42 +0100
+Subject: [PATCH] Add support for ignoring exchange server policy (2/2)
+
+Some of us don't like the policies enforced by some exchange server configurations or the unconvinencies that come with it (safe lockscreen, etc.).
+So make it possible to ignore any policies pushed by the exchange server.
+
+based on the "ExchangeBypassXposed" module by Shantanu Goel.
+
+This also requires the app to be signed with platform keys.
+
+Change-Id: I8b37eef0ba926a14b19a09eccb092895dee5bd9b
+---
+ Android.mk                                         |    1 -
+ .../android/exchange/adapter/ProvisionParser.java  |    3 +++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Android.mk b/Android.mk
+index 7a3de44..240de82 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -40,7 +40,6 @@ LOCAL_PACKAGE_NAME := Exchange2
+ LOCAL_OVERRIDES_PACKAGES := Exchange
+ 
+ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+-LOCAL_SDK_VERSION := 19
+ 
+ LOCAL_EMMA_COVERAGE_FILTER += +com.android.exchange.*
+ 
+diff --git a/src/com/android/exchange/adapter/ProvisionParser.java b/src/com/android/exchange/adapter/ProvisionParser.java
+index 436a0a4..946ca8f 100644
+--- a/src/com/android/exchange/adapter/ProvisionParser.java
++++ b/src/com/android/exchange/adapter/ProvisionParser.java
+@@ -20,6 +20,7 @@ import android.content.Context;
+ import android.content.res.Resources;
+ import android.os.Environment;
+ import android.support.v4.content.ContextCompat;
++import android.os.SystemProperties;
+ 
+ import com.android.emailcommon.provider.Policy;
+ import com.android.exchange.Eas;
+@@ -74,6 +75,8 @@ public class ProvisionParser extends Parser {
+     }
+ 
+     public boolean hasSupportablePolicySet() {
++        if (SystemProperties.getBoolean("persist.exchange.nopolicy", false))
++            return true;
+         return (mPolicy != null) && mIsSupportable;
+     }
+ 
+-- 
+1.7.9.5
+

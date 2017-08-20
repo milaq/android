@@ -1,0 +1,11 @@
+# legacy camera support part 1
+frameworks/av legacy-camera-support-1
+
+# legacy camera support part 2
+frameworks/av legacy-camera-support-2
+
+# add INCALL_MUSIC stream type to getStrategy()
+hardware/qcom/audio-caf add-INCALL_MUSIC-stream-type-to-getStrategy
+
+# fix legacy audio ringtone
+hardware/qcom/audio-caf fix-legacy-hal-ringtone
