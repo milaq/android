@@ -1,0 +1,28 @@
+From db2a486fafd404a2b6d2789833171d174bd7cfda Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Mon, 21 Aug 2017 17:21:18 +0200
+Subject: [PATCH] add ability to change webview package name
+
+---
+ core/java/android/webkit/WebViewFactory.java | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/core/java/android/webkit/WebViewFactory.java b/core/java/android/webkit/WebViewFactory.java
+index c7ffedc1e0f..fe283bfbc34 100644
+--- a/core/java/android/webkit/WebViewFactory.java
++++ b/core/java/android/webkit/WebViewFactory.java
+@@ -75,8 +75,9 @@ public final class WebViewFactory {
+     private static PackageInfo sPackageInfo;
+ 
+     public static String getWebViewPackageName() {
+-        return AppGlobals.getInitialApplication().getString(
+-                com.android.internal.R.string.config_webViewPackageName);
++        return SystemProperties.getBoolean("persist.sys.webview.google", false) ?
++            "com.google.android.webview" : AppGlobals.getInitialApplication().getString(
++                    com.android.internal.R.string.config_webViewPackageName);
+     }
+ 
+     public static PackageInfo getLoadedPackageInfo() {
+-- 
+2.14.1
+

@@ -12,3 +12,6 @@ bootable/recovery recovery-non-touch-hacks
 
 # make_ext4fs: workaround for a glibc scandir bug
 system/extras make_ext4fs-workaround-for-a-glibc-scandir-bug
+
+# add ability to change webview package name
+frameworks/base add-ability-to-change-webview-package-name.patch
