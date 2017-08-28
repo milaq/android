@@ -13,6 +13,6 @@
   <remove-project name="LineageOS/android_packages_apps_Snap"/>
   
   <!-- We don't use the default updatechannel -->
-  <remove-project name="LineageOS/android_packages_apps_CMUpdater"/>
+  <remove-project name="LineageOS/android_packages_apps_Updater"/>
 
 </manifest>
