@@ -54,7 +54,7 @@
     <project path="kernel/lge/p940"
       name="milaq/android_kernel_lge_p940"
       remote="github"
-      revision="cm-10.1"/>
+      revision="cm-10.2"/>
 
     <project path="vendor/bn"
       name="TheMuppets/proprietary_vendor_bn"
