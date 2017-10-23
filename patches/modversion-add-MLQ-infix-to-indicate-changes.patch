@@ -1,17 +1,17 @@
-From ea7c1623fc68c0c95935a7dffa9af3c015afce97 Mon Sep 17 00:00:00 2001
+From fe311d7aa5d8b2acffc7d1b765bd22858089de05 Mon Sep 17 00:00:00 2001
 From: milaq <micha.laqua@gmail.com>
-Date: Mon, 2 Jan 2017 16:32:44 +0100
+Date: Mon, 23 Oct 2017 15:18:17 +0200
 Subject: [PATCH] modversion: add MLQ infix to indicate cherry-picks
 
 ---
- config/common.mk | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ config/common.mk | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
 diff --git a/config/common.mk b/config/common.mk
-index 0cdfe893..f9515862 100644
+index 3212571b..2f3f27e9 100644
 --- a/config/common.mk
 +++ b/config/common.mk
-@@ -296,23 +296,23 @@ endif
+@@ -289,30 +289,30 @@ endif
  
  ifeq ($(CM_BUILDTYPE), RELEASE)
      ifndef TARGET_VENDOR_RELEASE_BUILD_ID
@@ -33,14 +33,35 @@ index 0cdfe893..f9515862 100644
      endif
  else
      ifeq ($(CM_VERSION_MAINTENANCE),0)
--        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
-+        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-MLQ-$(CM_BUILD)
+         ifeq ($(CM_BUILDTYPE), UNOFFICIAL)
+-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d_%H%M%S)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
++            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d_%H%M%S)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-MLQ-$(CM_BUILD)
+         else
+-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
++            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-MLQ-$(CM_BUILD)
+         endif
      else
--        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
-+        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-MLQ-$(CM_BUILD)
+         ifeq ($(CM_BUILDTYPE), UNOFFICIAL)
+-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d_%H%M%S)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
++            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d_%H%M%S)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-MLQ-$(CM_BUILD)
+         else
+-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
++            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-MLQ-$(CM_BUILD)
+         endif
      endif
  endif
- 
+@@ -346,9 +346,9 @@ ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
+             TARGET_VENDOR_RELEASE_BUILD_ID := $(TARGET_VENDOR_RELEASE_BUILD_ID)
+         endif
+         ifeq ($(CM_VERSION_MAINTENANCE),0)
+-            CM_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(CM_BUILD)
++            CM_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-MLQ-$(CM_BUILD)
+         else
+-            CM_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(CM_BUILD)
++            CM_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-MLQ-$(CM_BUILD)
+         endif
+     endif
+ endif
 -- 
-2.11.0
+2.14.2
 
