@@ -1,0 +1,28 @@
+From b5c719b32647feea139d921be011bc7735dfd9e8 Mon Sep 17 00:00:00 2001
+From: milaq <micha.laqua@gmail.com>
+Date: Mon, 2 Jul 2018 23:40:24 +0200
+Subject: [PATCH] do not build the terminal emulator
+
+breaks the build and no one uses it
+---
+ config/common.mk | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/config/common.mk b/config/common.mk
+index 1a3320e9..87dc22e0 100644
+--- a/config/common.mk
++++ b/config/common.mk
+@@ -187,10 +187,6 @@ PRODUCT_PACKAGES += \
+     Superuser \
+     su
+ 
+-# Terminal Emulator
+-PRODUCT_PACKAGES += \
+-    Terminal
+-
+ PRODUCT_PROPERTY_OVERRIDES += \
+     persist.sys.root_access=1
+ else
+-- 
+2.18.0
+
