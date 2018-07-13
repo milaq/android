@@ -8,10 +8,6 @@
   <project path="vendor/lge"
            name="TheMuppets/proprietary_vendor_lge"/>
 
-  <!-- Remove cyngn.com endorsed stuff -->
-  <remove-project name="LineageOS/android_packages_apps_Eleven"/>
-  <remove-project name="LineageOS/android_packages_apps_Snap"/>
-  
   <!-- We don't use the default updatechannel -->
   <remove-project name="LineageOS/android_packages_apps_Updater"/>
 
