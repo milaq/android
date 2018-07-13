@@ -1,9 +1,9 @@
-LineageOS 14.1
+LineageOS 15.1
 ================================
 manifests + cherry-picks (milaq)
 ================================
 
-Android 7.1 (Nougat MR1)
+Android 8.1 (Oreo MR1)
 
 Use 'LineageOS/android.git' to init the repos.
 Pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync.

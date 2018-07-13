@@ -4,5 +4,5 @@ packages/apps/Email ignore-exchange-server-policy-1-2
 # Exchange: ignore exchange server policy (2/2)
 packages/apps/Exchange ignore-exchange-server-policy-2-2
 
-# modversion: add MLQ infix to indicate changes
-vendor/cm modversion-add-MLQ-infix-to-indicate-changes
+# modversion: add MLQ infix to indicate cherry picks
+vendor/cm modversion-add-MLQ-infix-to-indicate-cherry-picks
