@@ -17,4 +17,4 @@ vendor/cm modversion-add-MLQ-infix-to-indicate-changes
 frameworks/base add-ability-to-set-the-screen-dim-brightness-to-zero
 
 # do not build the terminal emulator
-frameworks/base do-not-build-the-terminal-emulator
+vendor/cm do-not-build-the-terminal-emulator
