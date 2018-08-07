@@ -8,11 +8,6 @@
   <project path="vendor/lge"
            name="TheMuppets/proprietary_vendor_lge"/>
 
-  <!-- AOSP Exchange with security backports -->
-  <project path="packages/apps/Exchange"
-           name="milaq/android_packages_apps_Exchange"
-           revision="oreo_aosp_fixes"/>
-
   <!-- We don't use the default updatechannel -->
   <remove-project name="LineageOS/android_packages_apps_Updater"/>
 
