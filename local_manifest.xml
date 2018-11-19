@@ -9,9 +9,6 @@
            name="TheMuppets/proprietary_vendor_lge"/>
   
   <remove-project name="LineageOS/android_packages_apps_Snap"/>
-  
-  <project path="packages/apps/Exchange"
-           name="LineageOS/android_packages_apps_Exchange"/>
 
   <!-- We don't use the default updatechannel -->
   <remove-project name="LineageOS/android_packages_apps_Updater"/>
