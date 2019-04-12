@@ -38,3 +38,6 @@ apply ignore-exchange-server-policy-2-2 packages/apps/Exchange
 
 # modversion: add MLQ infix to indicate changes
 apply modversion-add-MLQ-infix-to-indicate-changes vendor/cm
+
+# add ability to set the screen dim brightness to zero
+apply add-ability-to-set-the-screen-dim-brightness-to-zero frameworks/base
