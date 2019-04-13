@@ -1,0 +1,8 @@
+# mako hdpi build
+device/lge/mako mako-hdpi-build
+
+# minimize softbutton spacing
+frameworks/base minimize-softbutton-spacing
+
+# dpi adjustment settings patch
+packages/apps/Settings dpi-preferably-allow-adjusting-to-higher-dpi

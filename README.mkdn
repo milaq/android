@@ -1,11 +1,11 @@
-Cyanogenmod 13.0
+LineageOS 13.0
 ================================
 manifests + cherry-picks (milaq)
 ================================
 
 Android 6.0 Marshmallow
 
-use 'CyanogenMod/android.git' to init the repos.
+use 'LineageOS/android.git' to init the repos.
 pull the local manifest to .repo/local_manifests/local_manifest.xml and repo sync
 
-(cherry pick when needed)
+All cherry-picks applied are listed here.
