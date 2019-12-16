@@ -7,6 +7,9 @@
       
   <project path="vendor/lge"
            name="TheMuppets/proprietary_vendor_lge"/>
+  
+    <project path="vendor/motorola"
+           name="TheMuppets/proprietary_vendor_motorola"/>
 
   <!-- Remove cyngn.com endorsed stuff -->
   <remove-project name="LineageOS/android_packages_apps_Eleven"/>
