@@ -16,10 +16,6 @@
       remote="github"
       revision="cm-13.0"/>
 
-    <remove-project name="LineageOS/android_packages_apps_CMFileManager"/>
-    <remove-project name="LineageOS/android_packages_apps_Eleven"/>
-    <remove-project name="LineageOS/android_packages_apps_Gello"/>
     <remove-project name="LineageOS/android_packages_apps_CMUpdater"/>
-    <remove-project name="LineageOS/android_packages_apps_Snap"/>
 
   </manifest>
