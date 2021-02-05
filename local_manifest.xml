@@ -15,6 +15,11 @@
       name="TheMuppets/proprietary_vendor_samsung"
       remote="github"
       revision="cm-13.0"/>
+    
+    <project path="vendor/ti"
+      name="TheMuppets/proprietary_vendor_ti"
+      remote="github"
+      revision="master"/>
 
     <remove-project name="LineageOS/android_packages_apps_CMUpdater"/>
 
