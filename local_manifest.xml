@@ -11,6 +11,9 @@
     <project path="vendor/motorola"
            name="TheMuppets/proprietary_vendor_motorola"/>
   
+    <project path="vendor/oneplus"
+           name="TheMuppets/proprietary_vendor_oneplus"/>
+  
   <!-- We don't use the default updatechannel -->
   <remove-project name="LineageOS/android_packages_apps_Updater"/>
 
